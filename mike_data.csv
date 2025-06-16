@@ -1,0 +1,275 @@
+ID,"Sex
+Male=1, Female=2",Education Attainment,Education Field,ISCED Fields of Education,Current ORG1 (IG),Umbrella Organization Membership,Recruitment Type,Type of represented interest,First_Position,Second_Position,Third_Position,Fourth_Position	,Fifth_Position,Sixth_Position,Seventhth_Position,Eigth_Position,Nineth_Position,Step10,Step11,Step12,Step13
+L001,Male,PhD,Education,Education,FF,Unio,Elected,Profession,EDU_INST ,EDU_INST ,EDU_INST ,EDU_INST ,EDU_INST ,EDU_IG,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA
+L002,Female,PhD,Biology,"Natural Sciences, Mathematics, and Statistics",FF,Unio,Elected,Profession,EDU_INST ,EDU_INST ,EDU_INST ,EDU_IG,EDU_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA
+L003,Male,PhD,Human geography,"Social Sciences, Business, and Law",FF,Unio,Elected,Profession,EDU_IG,EDU_IG,OTH_IG,OTH_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA
+L004,Female,PhD,Social geography,"Social Sciences, Business, and Law",FF,Unio,Elected,Profession,EDU_INST ,EDU_INST ,EDU_IG,EDU_IG,EDU_INST ,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA
+L005,Female,PhD,Science and technology studies,"Social Sciences, Business, and Law",FF,Unio,Elected,Profession,EDU_INST ,EDU_INST ,EDU_INST ,EDU_INST ,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA
+L006,Female,Master,General literature,Humanities and Arts,FF,Unio,Elected,Profession,EDU_INST ,PRIV_SEC ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L007,Male,Master,Nordic History,Humanities and Arts,FF,Unio,Elected,Profession,EDU_INST ,EDU_INST ,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L008,Male,Master,Media,Humanities and Arts,FF,Unio,Elected,Profession,EDU_INST ,EDU_GOV ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L009,Female,PhD, Sport Sociology,"Social Sciences, Business, and Law",FF,Unio,Elected,Profession,PRIV_SEC ,OTH_IG,EDU_INST ,PRIV_SEC ,EDU_INST ,EDU_IG,LOC_GOV ,EDU_IG,NA,NA,NA,NA,NA
+L010,Male,PhD,Mathematics,"Natural Sciences, Mathematics, and Statistics",FF,Unio,Elected,Profession,EDU_INST ,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L011,Male,PhD,Political Science,"Social Sciences, Business, and Law",UF,Unio,Elected,Profession,EDU_INST ,EDU_INST ,EDU_IG,EDU_IG,EDU_IG,EDU_IG,EDU_IG,NA,NA,NA,NA,NA,NA
+L012,Male,Master,Education,Education,UF,Unio,Elected,Profession,EDU_INST ,EDU_IG,OTH_IG,EDU_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA
+L013,Female,Master,Special education,Education,UF,Unio,Elected,Profession,OTH_IG,PRIV_SEC ,EDU_INST ,EDU_IG,EDU_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA
+L014,Female,Master,Education,Education,UF,Unio,Elected,Profession,EDU_INST ,EDU_INST ,EDU_IG,EDU_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA
+L015,"Male 
+",Master,Secondary Education and Teaching,Education,UF,Unio,Elected,Profession,EDU_INST ,EDU_GOV ,EDU_INST ,EDU_INST ,EDU_INST ,EDU_INST ,EDU_INST ,EDU_INST ,EDU_IG,NA,NA,NA,NA
+L016,Female,Master,Special pedagogy,Education,UF,Unio,Elected,Profession,LOC_GOV ,EDU_IG,EDU_INST ,LOC_GOV ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA
+L017,Female,Bachelor,Education,Education,UF,Unio,Elected,Profession,EDU_INST ,EDU_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L018,Female,Bachelor,Kindergarten teacher training,Education,UF,Unio,Elected,Profession,EDU_INST ,EDU_IG,EDU_IG,EDU_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA
+L019,Male,PhD,Literature,Humanities and Arts,UF,Unio,Elected,Profession,EDU_INST ,EDU_INST ,EDU_INST ,EDU_IG,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA
+L020,Female,Bachelor,Education,Education,UF,Unio,Elected,Profession,EDU_INST ,EDU_INST ,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L021,Female,Master,Sports Education,Education,UF,Unio,Elected,Profession,EDU_INST ,OTH_GOV ,EDU_IG,EDU_IG,EDU_INST ,EDU_IG,EDU_IG,NA,NA,NA,NA,NA,NA
+L022,Male,NA,NA,NA,UF,Unio,Elected,Profession,EDU_INST ,EDU_IG,EDU_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L023,Male,Bachelor,Nordisk language and literature,Humanities and Arts,UF,Unio,Elected,Profession,EDU_IG,OTH_GOV ,EDU_INST ,EDU_IG,EDU_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA
+L024,Female,Master,Political science ,"Social Sciences, Business, and Law",NLL,Akademikerne,Elected,Profession,EDU_INST ,EDU_IG,EDU_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L025,Female,Master,Religion og etikk,"Social Sciences, Business, and Law",NLL,Akademikerne,Elected,Profession,EDU_INST ,EDU_IG,LOC_GOV ,EDU_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA
+L026,Male,Master,History ,Humanities and Arts,NLL,Akademikerne,Elected,Profession,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L027,Female,Master, Engelsk språk,Humanities and Arts,NLL,Akademikerne,Elected,Profession,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L028,Female,Master,French language and literature,Humanities and Arts,NLL,Akademikerne,Elected,Profession,EDU_INST ,EDU_INST ,PRIV_SEC ,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA
+L029,Female,Master,Social Sciences,"Social Sciences, Business, and Law",NLL,Akademikerne,Elected,Profession,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L030,Male,Master,Mathematics,"Natural Sciences, Mathematics, and Statistics",NLL,Akademikerne,Elected,Profession,EDU_INST ,EDU_IG,EDU_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L031,Female,Master,European history,Humanities and Arts,NLL,Akademikerne,Elected,Profession,EDU_INST ,EDU_IG,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L032,Male,Master,"Natural Science, Mathematics","Natural Sciences, Mathematics, and Statistics",NLL,Akademikerne,Elected,Profession,EDU_INST ,EDU_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L033,Male,Master,Nordic and Spanish,Humanities and Arts,NLL,Akademikerne,Elected,Profession,EDU_INST ,EDU_INST ,Media,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA
+L034,Male,Master,Mathematics,"Natural Sciences, Mathematics, and Statistics",NLL,Akademikerne,Elected,Profession,EDU_INST ,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L035,Female,Master,Norwegian didactics with a major in literature,Humanities and Arts,NLL,Akademikerne,Elected,Profession,EDU_INST ,PRIV_SEC ,EDU_INST ,EDU_INST ,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA
+L036,Male,Master,Public Administration,"Social Sciences, Business, and Law",SLF,YS,Elected,Profession,OTH_GOV ,EDU_INST ,EDU_INST ,EDU_IG,EDU_INST ,PRIV_SEC ,EDU_IG,NA,NA,NA,NA,NA,NA
+L037,Female,Master,Educational leadership,Education,SLF,YS,Elected,Profession,EDU_INST ,EDU_GOV ,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L038,Female,Master,Management of school organisations,"Social Sciences, Business, and Law",SLF,YS,Elected,Profession,EDU_INST ,EDU_INST ,EDU_INST ,EDU_INST ,EDU_IG,EDU_GOV ,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA
+L039,Male,Master,"Professional studies, education, leadership",Education,SLF,YS,Elected,Profession,EDU_INST ,EDU_INST ,EDU_IG,EDU_INST ,EDU_GOV ,EDU_IG,NA,NA,NA,NA,NA,NA,NA
+L040,Male,Master,The Rector's School,Education,SLF,YS,Elected,Profession,EDU_GOV ,EDU_INST ,EDU_IG,EDU_INST ,EDU_IG,EDU_INST ,NA,NA,NA,NA,NA,NA,NA
+L041,Male,Master,Educational management,"Social Sciences, Business, and Law",SLF,YS,Elected,Profession,EDU_INST ,EDU_GOV ,LOC_GOV ,EDU_INST ,EDU_INST ,EDU_INST ,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA
+L042,Male,Master,School Leadership,Education,SLF,YS,Elected,Profession,OTH_GOV ,EDU_INST ,EDU_INST ,EDU_INST ,EDU_IG,LOC_GOV ,EDU_IG,NA,NA,NA,NA,NA,NA
+L043,Female,Master,Pedagogical management and administration,"Social Sciences, Business, and Law",SLF,YS,Elected,Profession,EDU_INST ,OTH_IG,EDU_INST ,EDU_INST ,EDU_GOV ,EDU_IG,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA
+L044,Female,Bachelor,Kindergarten teacher,Education,SLF,YS,Elected,Profession,EDU_GOV ,EDU_IG,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L045,Female,Master,French and Spanish,Humanities and Arts,SL,LO,Elected,Profession,EDU_INST ,EDU_IG,EDU_IG,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA
+L046,Male,Master,History,Humanities and Arts,SL,LO,Elected,Profession,EDU_INST ,EDU_INST ,EDU_IG,EDU_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA
+L047,Female,Master,"Folk dance, traditional knowledge",Humanities and Arts,SL,LO,Elected,Profession,EDU_INST ,EDU_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L048,Male,Bachelor,History,Humanities and Arts,SL,LO,Elected,Profession,EDU_INST ,EDU_IG,LOC_GOV ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L049,Male,Bachelor,Media and communication,Humanities and Arts,SL,LO,Elected,Profession,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L050,Male,Master,Philosophy,Humanities and Arts,SL,LO,Elected,Profession,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,EDU_INST ,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA
+L051,Female,Post-secondary non-tertiary,Mathematics,Education,SL,LO,Elected,Profession,PRIV_SEC ,EDU_INST ,EDU_IG,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA
+L052,Female,Bachelor,Teaching,Education,SL,LO,Elected,Profession,EDU_INST ,EDU_IG,POL_PA ,PRIV_SEC ,POL_PA ,EDU_INST ,EDU_GOV ,EDU_IG,NA,NA,NA,NA,NA
+L053,Female,Bachelor,religious studies and history,Humanities and Arts,SL,LO,Elected,Profession,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L054,Female,Post-secondary non-tertiary,Education,Education,SL,LO,Elected,Profession,EDU_INST ,EDU_INST ,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L055,Male,PhD,History,Humanities and Arts,SL,LO,Elected,Profession,EDU_INST ,EDU_INST ,EDU_INST ,EDU_INST ,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA
+L056,Female,Bachelor,Education,Education,SL,LO,Elected,Profession,EDU_INST ,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L057,Male,Post-secondary non-tertiary,Vocational teaching,Education,SL,LO,Elected,Profession,EDU_INST ,EDU_INST ,EDU_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L058,Female,Post-secondary non-tertiary,Education in special education,Education,SL,LO,Elected,Profession,EDU_INST ,EDU_INST ,EDU_IG,EDU_GOV ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA
+L059,Male,Post-secondary non-tertiary,Teacher,Education,SL,LO,Elected,Profession,EDU_INST ,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L060,Female,Master,Political Science,"Social Sciences, Business, and Law",NTL,LO,Elected,Profession,OTH_GOV ,EDU_IG,EDU_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L061,Female,Master,Sociology ,"Social Sciences, Business, and Law",NTL,LO,Elected,Profession,EDU_INST ,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L062,Male,Post-secondary non-tertiary,Machnist,"Engineering, Manufacturing, and Construction",NTL,LO,Elected,Profession,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L063,Female,Bachelor,A degree in law,"Social Sciences, Business, and Law",NTL,LO,Elected,Profession,OTH_GOV ,EDU_IG,POL_PA ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L064,Male,Master,Business Administration,"Social Sciences, Business, and Law",NTL,LO,Elected,Profession,OTH_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L065,Female,Master,History,Humanities and Arts,NTL,LO,Elected,Profession,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L066,Female,Bachelor,Market management,"Social Sciences, Business, and Law",NTL,LO,Elected,Profession,EDU_IG,EDU_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L067,Male,Upper secondary,Electrical,"Engineering, Manufacturing, and Construction",NTL,LO,Elected,Profession,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L068,Male,Bachelor,Management,"Social Sciences, Business, and Law",NTL,LO,Elected,Profession,LOC_GOV ,LOC_GOV ,LOC_GOV ,OTH_GOV ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA
+L069,Male,Bachelor,Marketing management,"Social Sciences, Business, and Law",NTL,LO,Elected,Profession,OTH_GOV ,OTH_GOV ,EDU_IG,OTH_GOV ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA
+L070,Female,Master,Political science,"Social Sciences, Business, and Law",NTL,LO,Elected,Profession,EDU_INST ,EDU_IG,EDU_INST ,EDU_IG,PARL,EDU_IG,NA,NA,NA,NA,NA,NA,NA
+L071,Female,Bachelor,Nurse education,Health and Welfare,NSO,No Membership ,Elected,Users,PRIV_SEC ,OTH_GOV ,OTH_IG,EDU_INST ,OTH_GOV ,EDU_IG,EDU_IG,NA,NA,NA,NA,NA,NA
+L072,Female,Bachelor,"Teaching qualification, History",Education,NSO,No Membership ,Elected,Users,PRIV_SEC ,EDU_INST ,EDU_GOV ,EDU_GOV ,EDU_IG,EDU_IG,EDU_IG,NA,NA,NA,NA,NA,NA
+L073,Male,Bachelor,Caregiver,Health and Welfare,NSO,No Membership ,Elected,Users,PRIV_SEC ,OTH_GOV ,EDU_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L074,Female,Bachelor,Jurisprudence,"Social Sciences, Business, and Law",NSO,No Membership ,Elected,Users,LOC_GOV ,EDU_GOV ,EDU_IG,EDU_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA
+L075,Female,Bachelor,Political Science,"Social Sciences, Business, and Law",NSO,No Membership ,Elected,Users,OTH_IG,LOC_GOV ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L076,Male,Bachelor,"Natural Science, Chemistry","Natural Sciences, Mathematics, and Statistics",NSO,No Membership ,Elected,Users,EDU_INST ,EDU_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L077,Female,Bachelor,Public administration ,"Social Sciences, Business, and Law",NSO,No Membership ,Elected,Users,EDU_IG,OTH_IG,OTH_IG,OTH_IG,EDU_IG,Media,EDU_IG,NA,NA,NA,NA,NA,NA
+L078,Female,Bachelor,Intercultural Studies,Humanities and Arts,NSO,No Membership ,Elected,Users,OTH_IG,EDU_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L079,Female,Bachelor,Political science,"Social Sciences, Business, and Law",NSO,No Membership ,Elected,Users,EDU_IG,EDU_IG,OTH_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L080,Male,Bachelor,Political Science,"Social Sciences, Business, and Law",NSO,No Membership ,Elected,Users,PRIV_SEC ,EDU_IG,EDU_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L081,Female,Bachelor,Psychology,"Social Sciences, Business, and Law",NSO,No Membership ,Elected,Users,LOC_GOV ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L082,Female,Master,Applied public health science,Health and Welfare,NSO,No Membership ,Elected,Users,PRIV_SEC ,EDU_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L083,Male,Bachelor,Social science,"Social Sciences, Business, and Law",NSO,No Membership ,Elected,Users,PRIV_SEC ,EDU_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L084,Male,Bachelor,Music,Humanities and Arts,FAU,No Membership ,Elected,Users,EDU_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L085,Female,Bachelor,Business Administration,"Social Sciences, Business, and Law",FAU,No Membership ,Elected,Users,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L086,Female,Master,Engineering,"Engineering, Manufacturing, and Construction",FAU,No Membership ,Elected,Users,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,EDU_IG,NA,NA,NA,NA,NA,NA,NA
+L087,Female,Master,Political Science,"Social Sciences, Business, and Law",FAU,No Membership ,Elected,Users,OTH_IG,OTH_GOV ,OTH_GOV ,OTH_GOV ,OTH_IG,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA
+L088,Male,Master,F,Humanities and Arts,FAU,No Membership ,Elected,Users,OTH_IG,OTH_GOV ,LOC_GOV ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L089,Female,Master,"Rector, Education",Education,FAU,No Membership ,Elected,Users,PRIV_SEC ,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L090,Male,Master,Political Science,"Social Sciences, Business, and Law",FAU,No Membership ,Elected,Users,OTH_GOV ,PRIV_SEC,LOC_GOV ,EDU_IG,LOC_GOV ,LOC_GOV ,EDU_IG,NA,NA,NA,NA,NA,NA
+L091,Female,Master,Law,"Social Sciences, Business, and Law",FAU,No Membership ,Elected,Users,OTH_GOV ,EDU_IG,LOC_GOV ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L092,Female,Bachelor,Business Education,Education,FAU,No Membership ,Elected,Users,OTH_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L093,Male,Bachelor,Energy,"Engineering, Manufacturing, and Construction",FAU,No Membership ,Elected,Users,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA
+L094,Male,Bachelor,Agriculture,"Agriculture, Forestry, Fisheries, and Veterinary",FAU,No Membership ,Elected,Users,PRIV_SEC ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L095,Female,Master,Journalism and communication,Information and Communication Technologies (ICT),FAU,No Membership ,Elected,Users,EDU_IG,OTH_GOV ,PRIV_SEC ,OTH_IG,Media,PRIV_SEC ,EDU_IG,NA,NA,NA,NA,NA,NA
+L096,Female,Bachelor,Catery,Health and Welfare,FAU,No Membership ,Elected,Users,PRIV_SEC ,OTH_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L097,Male,Upper secondary,Science and Economics,"Social Sciences, Business, and Law",EO,No Membership ,Elected,Users,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L098,Female,Upper secondary,General Courses,"Natural Sciences, Mathematics, and Statistics",EO,No Membership ,Elected,Users,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L099,Male,Post-secondary non-tertiary,International Baccalaureate,Health and Welfare,EO,No Membership ,Elected,Users,EDU_IG,OTH_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L100,Female,Upper secondary,General Courses,General Courses,EO,No Membership ,Elected,Users,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L101,Male,Upper secondary,General Courses,General Courses,EO,No Membership ,Elected,Users,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L102,Male,Upper secondary,General Courses,General Courses,EO,No Membership ,Elected,Users,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L103,Male,Upper secondary,General Courses,General Courses,EO,No Membership ,Elected,Users,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L104,Male,Upper secondary,General  courses,Humanities and Arts,EO,No Membership ,Elected,Users,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L105,Female,Upper secondary,General  courses,General Courses,EO,No Membership ,Elected,Users,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L106,Female,Upper secondary,General  courses,General Courses,EO,No Membership ,Elected,Users,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L107,Female,Post-secondary non-tertiary,Management,"Social Sciences, Business, and Law",EO,No Membership ,Elected,Users,LOC_GOV ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L108,Male,Upper secondary,General  courses,General Courses,EO,No Membership ,Elected,Users,LOC_GOV ,OTH_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L109,Male,Upper secondary,General  courses,General Courses,EO,No Membership ,Elected,Users,OTH_IG,OTH_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L110,Male,Master,Industrial Economics ,"Social Sciences, Business, and Law",NHO,No Membership ,Elected,Users,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,LOC_GOV ,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,EDU_IG,PRIV_SEC ,EDU_IG,NA,NA,NA
+L111,Female,Master,"Executive, High Performance Management","Social Sciences, Business, and Law",NHO,No Membership ,Elected,Users,OTH_IG,OTH_IG,OTH_IG,OTH_IG,OTH_IG,OTH_GOV ,OTH_IG,EDU_IG,NA,NA,NA,NA,NA
+L112,Male,PhD,Media science,Humanities and Arts,NHO,No Membership ,Elected,Users,Media,Media,Media,Media,Media,EDU_INST ,EDU_INST ,EDU_INST ,EDU_IG,NA,NA,NA,NA
+L113,Female,Master,Business Administration (MBA),"Social Sciences, Business, and Law",NHO,No Membership ,Elected,Users,OTH_GOV ,OTH_GOV,OTH_GOV ,LOC_GOV ,EDU_INST ,PRIV_SEC ,EDU_INST ,EDU_IG,EDU_INST ,EDU_INST ,EDU_GOV ,EDU_IG,NA
+L114,Male,Master,"Marketing Management, General","Social Sciences, Business, and Law",NHO,No Membership ,Elected,Users,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,EDU_IG,NA,NA,NA,NA,NA,NA,NA
+L115,Male,Master, Management and Economics,"Social Sciences, Business, and Law",NHO,No Membership ,Elected,Users,OTH_GOV ,PRIV_SEC ,PRIV_SEC ,OTH_GOV ,PRIV_SEC ,OTH_GOV ,EDU_GOV ,EDU_IG,NA,NA,NA,NA,NA
+L116,Female,Master,Management,"Social Sciences, Business, and Law",NHO,No Membership ,Elected,Users,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L117,Female,Master,Management,"Social Sciences, Business, and Law",NHO,No Membership ,Elected,Users,PRIV_SEC ,PRIV_SEC ,OTH_IG,OTH_GOV ,EDU_INST ,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA
+L118,Female,Master, Political Science and Government,"Social Sciences, Business, and Law",NHO,No Membership ,Elected,Users,OTH_GOV ,OTH_GOV ,OTH_GOV ,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L119,Male,Master,"Mechanics, Project Management ","Engineering, Manufacturing, and Construction",NHO,No Membership ,Elected,Users,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,OTH_GOV ,OTH_GOV ,PRIV_SEC ,EDU_IG,NA,NA,NA,NA
+L120,Female,Master,Law,"Social Sciences, Business, and Law",NHO,No Membership ,Elected,Users,EDU_INST ,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,NA,NA,NA,NA,NA,NA,NA,NA
+L121,Male,Master, Civil Engineering ,"Engineering, Manufacturing, and Construction",NHO,No Membership ,Elected,Users,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,EDU_IG,NA,NA,NA,NA,NA,NA
+L122,Male,Bachelor,Preschool teacher,Education,PBL,No Membership ,Elected,Providers,EDU_INST ,EDU_INST ,EDU_INST ,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA
+L123,Female,Master,Public administration,"Social Sciences, Business, and Law",PBL,No Membership ,Elected,Providers,EDU_INST ,EDU_INST ,PRIV_SEC ,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA
+L124,Male,Bachelor,Pre-school teacher training,Education,PBL,No Membership ,Elected,Providers,EDU_INST ,EDU_INST ,EDU_INST ,EDU_INST ,EDU_IG,EDU_IG,EDU_IG,EDU_INST ,EDU_IG,NA,NA,NA,NA
+L125,Male,Master,Business Administration,"Social Sciences, Business, and Law",PBL,No Membership ,Elected,Providers,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L126,Female,Master,"Barnehagelærer, videreutdanning i administrasjon og ledelse",Education,PBL,No Membership ,Elected,Providers,EDU_INST ,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L127,Female,Bachelor,Barnehagelærer,Education,PBL,No Membership ,Elected,Providers,LOC_GOV ,PARL,"
+PARL",PARL,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA
+L128,Female,Master,Marketing,"Social Sciences, Business, and Law",PBL,No Membership ,Elected,Providers,EDU_INST ,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L129,Female,Master,"Aesthetics, History of Ideas and Science",Humanities and Arts,NFFL,No Membership ,Elected,Providers,EDU_INST ,EDU_INST ,Media,EDU_INST ,OTH_IG,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA
+L130,Female,Bachelor,Vocational teacher,Education,NFFL,No Membership ,Elected,Providers,EDU_INST ,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L131,Female,Bachelor,Nordic language and literature,Humanities and Arts,NFFL,No Membership ,Elected,Providers,EDU_INST ,OTH_IG,OTH_IG,PRIV_SEC ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA
+L132,Female,Master,Political Science,"Social Sciences, Business, and Law",NFFL,No Membership ,Elected,Providers,EDU_INST ,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L133,Male,Master,Architecture,"Agriculture, Forestry, Fisheries, and Veterinary",NFFL,No Membership ,Elected,Providers,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,EDU_INST ,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L134,Male,Master,"Principal, School management",Education,NFFL,No Membership ,Elected,Providers,PRIV_SEC ,EDU_INST ,EDU_INST ,PRIV_SEC ,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA
+L135,Female,Master,Therapist,Health and Welfare,NFFL,No Membership ,Elected,Providers,EDU_INST ,PRIV_SEC ,OTH_GOV ,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA
+L136,Female,Master," Business Administration (MBA), Organisasjon og ledelse","Social Sciences, Business, and Law",NFFL,No Membership ,Elected,Providers,OTH_GOV ,OTH_GOV ,EDU_INST ,EDU_INST ,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA
+L137,Female,PhD,Linguistics,Humanities and Arts,UHR,No Membership ,Elected,Providers,EDU_INST ,EDU_INST ,EDU_INST ,EDU_INST ,OTH_GOV ,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA
+L138,Male,PhD,Chemistry/Sciences,"Natural Sciences, Mathematics, and Statistics",UHR,No Membership ,Elected,Providers,EDU_INST ,EDU_INST ,EDU_INST ,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA
+L139,Male,PhD,Petroleum economics,"Social Sciences, Business, and Law",UHR,No Membership ,Elected,Providers,EDU_INST ,OTH_GOV ,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L140,Male,PhD,Economics,"Social Sciences, Business, and Law",UHR,No Membership ,Elected,Providers,PRIV_SEC ,EDU_INST ,OTH_GOV ,EDU_INST ,OTH_GOV ,EDU_INST ,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA
+L141,Female,PhD,Agriculture,"Agriculture, Forestry, Fisheries, and Veterinary",UHR,No Membership ,Elected,Providers,EDU_INST ,EDU_INST ,EDU_INST ,EDU_INST ,EDU_INST ,EDU_INST ,EDU_INST ,EDU_INST ,EDU_IG,NA,NA,NA,NA
+L142,Male,PhD,Development Aid,"Social Sciences, Business, and Law",UHR,No Membership ,Elected,Providers,EDU_INST ,EDU_INST ,EDU_INST ,EDU_INST ,OTH_IG,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA
+L143,Female,Master,Electronic strategic business development,"Social Sciences, Business, and Law",UHR,No Membership ,Elected,Providers,PRIV_SEC ,EDU_INST ,PRIV_SEC ,PRIV_SEC ,OTH_IG,EDU_INST ,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA
+L144,Female,PhD,Physics,"Natural Sciences, Mathematics, and Statistics",UHR,No Membership ,Elected,Providers,EDU_INST ,EDU_INST ,EDU_INST ,EDU_INST ,EDU_INST ,EDU_INST ,EDU_INST ,EDU_INST ,EDU_INST ,EDU_INST ,EDU_INST ,EDU_IG,NA
+L145,Male,PhD,The history of Norwegian higher education,Humanities and Arts,UHR,No Membership ,Elected,Providers,EDU_INST ,EDU_INST ,EDU_INST ,EDU_INST ,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA
+L146,Female,PhD,Medicine,Health and Welfare,UHR,No Membership ,Elected,Providers,EDU_IG,EDU_INST ,EDU_INST ,EDU_GOV ,EDU_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA
+L147,Male,Bachelor,Automation,"Engineering, Manufacturing, and Construction",UHR,No Membership ,Elected,Providers,PRIV_SEC ,EDU_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L148,Male,Master,Education,"Social Sciences, Business, and Law",NSO,No Membership ,Employed,Users,OTH_IG,LOC_GOV ,OTH_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L149,Female,Bachelor,Political Science,"Social Sciences, Business, and Law",NSO,No Membership ,Employed,Users,OTH_IG,OTH_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L150,Male,Bachelor,Social Work,Health and Welfare,NSO,No Membership ,Employed,Users,EDU_INST ,PRIV_SEC ,EDU_IG,EDU_GOV ,OTH_IG,EDU_IG,EDU_GOV ,EDU_IG,NA,NA,NA,NA,NA
+L151,Female,Bachelor,Political Science,"Social Sciences, Business, and Law",NSO,No Membership ,Employed,Users,EDU_IG,OTH_GOV ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L152,Male,PhD,Music performance and psychology ,Humanities and Arts,NSO,No Membership ,Employed,Users,EDU_IG,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L153,Male,Bachelor,Information and community contact,Information and Communication Technologies (ICT),NSO,No Membership ,Employed,Users,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L154,Female,Master,Education,Education,FAU,No Membership ,Employed,Users,EDU_GOV ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L155,Female,Bachelor,Kindergarten teacher,Education,FAU,No Membership ,Employed,Users,EDU_INST ,EDU_INST ,LOC_GOV ,LOC_GOV ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA
+L156,Female,Master,Pre-school teacher training,Education,FAU,No Membership ,Employed,Users,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L157,Male,Master,Sports and outdoor life subjects,Health and Welfare,FAU,No Membership ,Employed,Users,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L158,Male,Master,Law,"Social Sciences, Business, and Law",FAU,No Membership ,Employed,Users,PRIV_SEC ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L159,Male,Master,Education,"Social Sciences, Business, and Law",FAU,No Membership ,Employed,Users,EDU_IG,LOC_GOV ,OTH_GOV ,PRIV_SEC ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA
+L160,Female,Master,primary school teacher,Education,FAU,No Membership ,Employed,Users,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L161,Male,Master,Media,Humanities and Arts,FAU,No Membership ,Employed,Users,PRIV_SEC ,Media,Media,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L162,Male,Upper secondary,General  courses,General Courses,EO,No Membership ,Employed,Users,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L163,Female,Bachelor,Business Administration,"Social Sciences, Business, and Law",EO,No Membership ,Employed,Users,PRIV_SEC ,PRIV_SEC ,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L164,Female,Master,International Social Welfare and Health Policy,"Social Sciences, Business, and Law",EO,No Membership ,Employed,Users,EDU_INST ,PRIV_SEC ,LOC_GOV ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L165,Male,Master,Master of Science in Marketing,"Social Sciences, Business, and Law",NHO ,No Membership ,Employed,Users,OTH_IG,OTH_IG,PRIV_SEC ,POL_PA ,OTH_IG,OTH_IG,LOC_GOV ,PRIV_SEC ,OTH_IG,OTH_IG,EDU_GOV ,EDU_GOV ,EDU_IG
+L166,Male,Master,Bussiness Administration,"Social Sciences, Business, and Law",NHO ,No Membership ,Employed,Users,OTH_GOV ,PRIV_SEC ,EDU_IG,OTH_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA
+L167,Female,Master,Law,"Social Sciences, Business, and Law",NHO ,No Membership ,Employed,Users,PRIV_SEC ,PRIV_SEC ,OTH_IG,OTH_GOV ,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L168,Male,Master,Public Administration and Public Policy ,"Social Sciences, Business, and Law",NHO ,No Membership ,Employed,Users,Media,Media,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,EDU_IG,NA,NA,NA,NA,NA,NA
+L169,Male,Bachelor, Media & Marketing,"Social Sciences, Business, and Law",NHO ,No Membership ,Employed,Users,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L170,Female,Master,"Social geography, social economy and political science","Social Sciences, Business, and Law",NHO,No Membership ,Employed,Users,PRIV_SEC ,EDU_INST ,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,EDU_IG,NA,NA,NA,NA,NA
+L171,Female,Master,Management,"Social Sciences, Business, and Law",NHO ,No Membership ,Employed,Users,LOC_GOV ,LOC_GOV ,OTH_GOV ,EDU_INST ,EDU_INST ,OTH_GOV ,EDU_IG,NA,NA,NA,NA,NA,NA
+L172,Male,Master,Industrial Design Engineering,"Engineering, Manufacturing, and Construction",NHO ,No Membership ,Employed,Users,PRIV_SEC ,PRIV_SEC ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L173,Male,Master,"Technology, Innovation and Knowledge","Social Sciences, Business, and Law",NHO,No Membership ,Employed,Users,EDU_IG,PRIV_SEC ,OTH_GOV ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L174,Male,Master,Political Science,"Social Sciences, Business, and Law",NHO ,No Membership ,Employed,Users,OTH_IG,OTH_IG,POL_PA ,PARL,EDU_GOV ,EDU_IG,NA,NA,NA,NA,NA,NA,NA
+L175,Female,Master,Education,Education,NHO ,No Membership ,Employed,Users,OTH_IG,EDU_INST ,LOC_GOV ,POL_PA ,EDU_GOV ,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA
+L176,Male,Master,Political Science,"Social Sciences, Business, and Law",NHO ,No Membership ,Employed,Users,PRIV_SEC ,PARL,LOC_GOV ,POL_PA ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA
+L177,Male,Master,Political Science,"Social Sciences, Business, and Law",NHO ,No Membership ,Employed,Users,EDU_INST ,EDU_IG,EDU_GOV ,EDU_IG,EDU_IG,EDU_GOV ,EDU_IG,NA,NA,NA,NA,NA,NA
+L178,Male,Bachelor,Engineer,"Engineering, Manufacturing, and Construction",UF,Unio,Employed,Profession,EDU_IG,OTH_IG,EDU_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L179,Male,Master,Educational management,Education,UF,Unio,Employed,Profession,EDU_INST ,LOC_GOV ,EDU_GOV ,LOC_GOV ,EDU_INST ,EDU_GOV ,OTH_IG,PRIV_SEC ,EDU_IG,NA,NA,NA,NA
+L180,Male,Master,Bussiness Administration,"Social Sciences, Business, and Law",UF,Unio,Employed,Profession,EDU_INST ,EDU_IG,LOC_GOV ,EDU_INST ,EDU_INST ,EDU_INST ,OTH_GOV ,OTH_GOV ,OTH_GOV ,PRIV_SEC ,EDU_IG,NA,NA
+L181,Female,Master,"Media studies, political science","Social Sciences, Business, and Law",UF,Unio,Employed,Profession,Media,Media,Media,OTH_IG,OTH_GOV ,EDU_IG,NA,NA,NA,NA,NA,NA,NA
+L182,Male,Master,Information Technology,Information and Communication Technologies (ICT),UF,Unio,Employed,Profession,PRIV_SEC ,POL_PA ,LOC_GOV ,LOC_GOV ,EDU_IG,PRIV_SEC ,PRIV_SEC ,EDU_IG,NA,NA,NA,NA,NA
+L183,Female,Bachelor,Political Science,"Social Sciences, Business, and Law",UF,Unio,Employed,Profession,POL_PA ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L184,Male,Master,Civil Engineering,"Engineering, Manufacturing, and Construction",UF,Unio,Employed,Profession,PRIV_SEC ,EDU_IG,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L185,Female,Bachelor,Education,Education,UF,Unio,Employed,Profession,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L186,Female,Master,Law,"Social Sciences, Business, and Law",UF,Unio,Employed,Profession,OTH_GOV ,OTH_IG,OTH_IG,OTH_IG,OTH_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA
+L187,Female,Bachelor,Education,Education,UF,Unio,Employed,Profession,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L188,Female,Master,Sociologi,"Social Sciences, Business, and Law",UF,Unio,Employed,Profession,Media,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L189,Male,Bachelor,Computer engineering,Information and Communication Technologies (ICT),UF,Unio,Employed,Profession,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,EDU_IG,NA,NA,NA,NA,NA,NA
+L190,Female,Master,Management ,"Social Sciences, Business, and Law",FF,Unio,Employed,Profession,OTH_GOV ,OTH_GOV ,OTH_GOV ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L191,Male,Master,Political Science,"Social Sciences, Business, and Law",FF,Unio,Employed,Profession,OTH_IG,EDU_IG,"Media
+",POL_PA ,PARL,OTH_IG,EDU_IG,NA,NA,NA,NA,NA,NA
+L192,Female,Master, Civil Engineering,"Engineering, Manufacturing, and Construction",FF,Unio,Employed,Profession,EDU_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L193,Female,Bachelor,Arts and Management,Humanities and Arts,FF,Unio,Employed,Profession,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA
+L194,Male,Master,Political Science,"Social Sciences, Business, and Law",FF,Unio,Employed,Profession,EDU_IG,EDU_INST ,EDU_INST ,OTH_GOV ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA
+L195,Female,Master,Political science,"Social Sciences, Business, and Law",FF,Unio,Employed,Profession,EDU_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L196,Female,Master,Law,"Social Sciences, Business, and Law",FF,Unio,Employed,Profession,OTH_GOV ,EDU_IG,OTH_IG,EDU_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA
+L197,Female,Master,Law,"Social Sciences, Business, and Law",FF,Unio,Employed,Profession,OTH_GOV ,OTH_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L198,Female,PhD,Sosiology,"Social Sciences, Business, and Law",FF,Unio,Employed,Profession,LOC_GOV ,EDU_INST ,EDU_INST ,OTH_GOV ,EDU_INST ,PRIV_SEC ,EDU_IG,NA,NA,NA,NA,NA,NA
+L199,Male,Master,Interdisciplinary social science,"Social Sciences, Business, and Law",FF,Unio,Employed,Profession,OTH_GOV ,EDU_INST ,OTH_GOV ,POL_PA ,OTH_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA
+L200,Female,Master,Law,"Social Sciences, Business, and Law",FF,Unio,Employed,Profession,OTH_GOV ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L201,Male,Master, Business Administration,"Social Sciences, Business, and Law",FF,Unio,Employed,Profession,EDU_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L202,Male,Master,Leadership,"Social Sciences, Business, and Law",FF,Unio,Employed,Profession,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,OTH_GOV ,PRIV_SEC ,EDU_IG,NA,NA,NA,NA,NA,NA,NA
+L203,Female,Bachelor, Auditing ,"Social Sciences, Business, and Law",FF,Unio,Employed,Profession,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA
+L204,Female,NA,NA,NA,FF,Unio,Employed,Profession,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L205,Female,Post-secondary non-tertiary,Economics,"Social Sciences, Business, and Law",FF,Unio,Employed,Profession,OTH_GOV ,EDU_INST ,EDU_IG,PRIV_SEC ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA
+L206,Female,Master,Law,"Social Sciences, Business, and Law",NLL,Akademikerne,Employed,Profession,POL_PA ,OTH_GOV ,PRIV_SEC ,PRIV_SEC ,OTH_GOV ,POL_PA ,PRIV_SEC ,EDU_IG,NA,NA,NA,NA,NA
+L207,Female,Master,Law,"Social Sciences, Business, and Law",NLL,Akademikerne,Employed,Profession,PRIV_SEC ,PRIV_SEC ,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L208,Female,Master,History,Humanities and Arts,NLL,Akademikerne,Employed,Profession,Media,PRIV_SEC ,Media,EDU_IG,"
+EDU_INST",EDU_INST ,OTH_IG,EDU_IG,NA,NA,NA,NA,NA
+L209,Female,Master,European studies of Society,"Social Sciences, Business, and Law",NLL,Akademikerne,Employed,Profession,EDU_INST ,OTH_GOV ,OTH_IG,OTH_IG,EDU_INST ,EDU_IG,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA
+L210,Female,Master,Social science,"Social Sciences, Business, and Law",NLL,Akademikerne,Employed,Profession,EDU_INST ,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L211,Female,Master,History,Humanities and Arts,NLL,Akademikerne,Employed,Profession,EDU_INST ,PRIV_SEC ,EDU_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L212,Female,Master,"EU law, employment law and tax law","Social Sciences, Business, and Law",NLL,Akademikerne,Employed,Profession,OTH_GOV ,OTH_IG,OTH_IG,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA
+L213,Male,Master,Economics,"Social Sciences, Business, and Law",NLL,Akademikerne,Employed,Profession,OTH_IG,OTH_GOV ,OTH_GOV ,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,EDU_GOV ,EDU_IG,NA,NA,NA,NA,NA
+L214,Female,Master,Nordic language and literature,Humanities and Arts,NLL,Akademikerne,Employed,Profession,EDU_IG,EDU_IG,OTH_GOV ,OTH_GOV ,OTH_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA
+L215,Female,Master,Religion and ethics,Humanities and Arts,NLL,Akademikerne,Employed,Profession,EDU_INST ,PRIV_SEC ,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L216,Male,Master,Law,"Social Sciences, Business, and Law",NLL,Akademikerne,Employed,Profession,OTH_IG,PRIV_SEC ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L217,Female,Bachelor,Business economist,"Social Sciences, Business, and Law",NLL,Akademikerne,Employed,Profession,OTH_IG,OTH_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L218,Female,Post-secondary non-tertiary, Merchandising/retail sales,"Social Sciences, Business, and Law",NLL,Akademikerne,Employed,Profession,PRIV_SEC ,Media,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,EDU_IG,NA,NA,NA,NA,NA,NA,NA
+L219,Female,Bachelor,Political Science,"Social Sciences, Business, and Law",NLL,Akademikerne,Employed,Profession,Media,OTH_GOV ,EDU_INST ,Media,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA
+L220,Male,Master,Educational management ,Education,SLF,YS,Employed,Profession,EDU_INST ,EDU_INST ,EDU_GOV ,EDU_GOV ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA
+L221,Female,Bachelor,Practical management training,"Social Sciences, Business, and Law",SLF,YS,Employed,Profession,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,OTH_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA
+L222,Female,Master,Law,"Social Sciences, Business, and Law",SLF,YS,Employed,Profession,EDU_GOV ,OTH_IG,EDU_GOV ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L223,Male,Bachelor,School management training,Education,SLF,YS,Employed,Profession,EDU_INST ,EDU_INST ,EDU_INST ,EDU_INST ,EDU_INST ,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA
+L224,Male,Master,Communication and media science,Humanities and Arts,SLF,YS,Employed,Profession,EDU_INST ,OTH_GOV ,EDU_IG,PRIV_SEC ,OTH_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA
+L225,Male,Master,Management,"Social Sciences, Business, and Law",SLF,YS,Employed,Profession,PRIV_SEC ,EDU_INST ,EDU_INST ,OTH_IG,Media,EDU_IG,NA,NA,NA,NA,NA,NA,NA
+L226,Male,Master,Finance,"Social Sciences, Business, and Law",SLF,YS,Employed,Profession,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,EDU_IG,NA,NA,NA,NA,NA
+L227,Female,Bachelor,Preschool teacher,Education,SLF,YS,Employed,Profession,EDU_INST ,EDU_INST ,EDU_INST ,EDU_INST ,LOC_GOV ,OTH_IG,OTH_IG,EDU_IG,NA,NA,NA,NA,NA
+L228,Male,Bachelor,Vocational teacher training,Education,SL ,LO,Elected,Profession,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L229,Female,Bachelor,Labor law,"Social Sciences, Business, and Law",SL ,LO,Elected,Profession,Media,EDU_INST ,EDU_INST ,PRIV_SEC ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA
+L230,Female,Bachelor,Accounting and administration,"Social Sciences, Business, and Law",SL ,LO,Employed,Profession,PRIV_SEC ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L231,Female,Upper secondary,Tourism coordinator,"Social Sciences, Business, and Law",SL ,LO,Employed,Profession,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,EDU_IG,NA,NA,NA,NA,NA
+L232,Female,Upper secondary,Information and Technology (ICT),Information and Technologies (ICT),SL ,LO,Employed,Profession,PRIV_SEC ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L233,Male,Bachelor,Journalism education,"Social Sciences, Business, and Law",SL ,LO,Employed,Profession,EDU_INST ,EDU_INST ,EDU_INST ,"
+Media",Media,Media,EDU_IG,NA,NA,NA,NA,NA,NA
+L234,Female,Master,Education,Education,SL ,LO,Elected,Profession,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L235,Male,NA,NA,NA,NTL,LO,Employed,Profession,PRIV_SEC ,OTH_IG,PRIV_SEC ,PRIV_SEC ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA
+L236,Female,Master,Archaeology,Humanities and Arts,NTL,LO,Employed,Profession,OTH_IG,OTH_GOV ,OTH_IG,OTH_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA
+L237,Male,Master,Public Administration,"Social Sciences, Business, and Law",NTL,LO,Elected,Profession,PRIV_SEC ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L238,Female,Master,Speech Communication and Rhetoric,Humanities and Arts,NTL,LO,Elected,Profession,OTH_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L239,Female,Master,"Social Sciences, Business, and Law","Social Sciences, Business, and Law",NTL,LO,Elected,Profession,EDU_IG,PRIV_SEC ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L240,Male,Bachelor,Political Economy,"Social Sciences, Business, and Law",NTL,LO,Employed,Profession,EDU_IG,POL_PA ,OTH_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L241,Female,Bachelor,Management policy,"Social Sciences, Business, and Law",NTL,LO,Elected,Profession,OTH_GOV ,EDU_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L242,Female,Bachelor,Information Techonology,Information and Communication Technologies (ICT),NTL,LO,Elected,Profession,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L243,Female,Bachelor,Real estate brokerage,"Social Sciences, Business, and Law",NTL,LO,Elected,Profession,PRIV_SEC ,PRIV_SEC ,OTH_GOV ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L244,Female,Master,Political Science,"Social Sciences, Business, and Law",NTL,LO,Elected,Profession,EDU_INST ,EDU_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L245,Female,Master,Law,"Social Sciences, Business, and Law",NTL,LO,Elected,Profession,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L246,Female,Bachelor,Administration ,"Social Sciences, Business, and Law",NTL,LO,Employed,Profession,EDU_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L247,Male,Bachelor,Administration,"Social Sciences, Business, and Law",NTL,LO,Employed,Profession,OTH_GOV ,EDU_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L248,Female,Master,Law,"Social Sciences, Business, and Law",PBL,No Membership ,Employed,Providers,PRIV_SEC ,PRIV_SEC ,PRIV_SEC ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L249,Male,Master,Law,"Social Sciences, Business, and Law",PBL,No Membership ,Employed,Providers,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L250,Male,Master,"Social Sciences, Business, and Law","Social Sciences, Business, and Law",PBL,No Membership ,Employed,Providers,OTH_GOV ,LOC_GOV ,OTH_GOV ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L251,Female,Master,Law,"Social Sciences, Business, and Law",PBL,No Membership ,Employed,Providers,OTH_GOV ,OTH_GOV ,OTH_GOV ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L252,Female,Master,Law,"Social Sciences, Business, and Law",PBL,No Membership ,Employed,Providers,OTH_GOV ,PRIV_SEC ,PRIV_SEC ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L253,Female,Master,Jurisprudence,"Social Sciences, Business, and Law",PBL,No Membership ,Employed,Providers,OTH_IG,OTH_GOV ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L254,Female,Master,Education,Education,PBL,No Membership ,Employed,Providers,PRIV_SEC ,PRIV_SEC ,"OTH_GOV
+",PRIV_SEC ,PRIV_SEC ,EDU_INST ,PRIV_SEC ,EDU_IG,NA,NA,NA,NA,NA
+L255,Female,Master, Political science,"Social Sciences, Business, and Law",NFFL,No Membership ,Employed,Providers,OTH_IG,OTH_IG,Media,POL_PA ,EDU_INST ,OTH_IG,EDU_IG,NA,NA,NA,NA,NA,NA
+L256,Female,Master,Literary studies,Humanities and Arts,UHR,No Membership ,Employed,Providers,EDU_INST ,EDU_INST ,OTH_GOV ,EDU_IG,EDU_GOV ,EDU_IG,NA,NA,NA,NA,NA,NA,NA
+L257,Female,Bachelor,International Business ,"Social Sciences, Business, and Law",UHR,No Membership ,Employed,Providers,EDU_INST ,EDU_GOV ,EDU_GOV ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L258,Female,Master,Political Science,"Social Sciences, Business, and Law",UHR,No Membership ,Employed,Providers,OTH_GOV ,OTH_GOV ,OTH_IG,OTH_GOV ,EDU_INST ,OTH_GOV ,NA,NA,NA,NA,NA,NA,NA
+L259,Female,Master,English,Humanities and Arts,UHR,No Membership ,Employed,Providers,EDU_IG,EDU_INST ,EDU_GOV ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L260,Female,Master,Sociology,"Social Sciences, Business, and Law",UHR,No Membership ,Employed,Providers,EDU_INST ,EDU_INST ,OTH_IG,OTH_GOV ,EDU_GOV ,EDU_IG,NA,NA,NA,NA,NA,NA,NA
+L261,Female,Master,Education,Education,UHR,No Membership ,Employed,Providers,LOC_GOV ,OTH_IG,EDU_INST ,OTH_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA
+L262,Male,PhD,Economics,"Social Sciences, Business, and Law",UHR,No Membership ,Employed,Providers,EDU_IG,LOC_GOV ,EDU_INST ,PRIV_SEC ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA
+L263,Female,Master,Political Science,"Social Sciences, Business, and Law",UHR,No Membership ,Employed,Providers,EDU_INST ,OTH_GOV ,EDU_INST ,EDU_INST ,EDU_INST ,LOC_GOV ,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA
+L264,Male,Master,Comparative Politics,"Social Sciences, Business, and Law",UHR,No Membership ,Employed,Providers,EDU_GOV ,EDU_GOV ,PRIV_SEC ,EDU_INST ,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA
+L265,Male,Bachelor,International Relations ,"Social Sciences, Business, and Law",UHR,No Membership ,Employed,Providers,EDU_INST ,LOC_GOV ,LOC_GOV ,OTH_IG,LOC_GOV ,EDU_IG,NA,NA,NA,NA,NA,NA,NA
+L266,Female,Master,Management,"Social Sciences, Business, and Law",UHR,No Membership ,Employed,Providers,OTH_GOV ,OTH_GOV ,EDU_INST ,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA
+L267,Female,Master,history of religion,Humanities and Arts,UHR,No Membership ,Employed,Providers,EDU_INST ,EDU_IG,EDU_IG,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
