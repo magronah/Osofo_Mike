@@ -354,7 +354,7 @@ seqIplot(seq_employed,
 ################################################################
 pp  =  function(data, target_states){
   
-  transfer_cols  <-  setdiff(names(clean_data_subset2), "ID")
+  transfer_cols  <-  setdiff(names(data), "ID")
   filtered_data <- data[apply(data[transfer_cols], 1, 
                               function(row) {any(row %in% target_states,
                                                  na.rm = TRUE) }), ]
@@ -363,7 +363,7 @@ pp  =  function(data, target_states){
     ifelse(col %in% target_states, col, NA)
   })
   
-  transfer_colors <- rainbow(length(target_states))
+ 
   
   all_states <- unlist(filtered_data[, -1])
   all_states <- all_states[!is.na(all_states)]
@@ -378,6 +378,7 @@ pp  =  function(data, target_states){
   unique_labels <- sort(unique(all_states))
   
   final_labels <- category_labels_with_counts[unique_labels]
+  transfer_colors <- rainbow(length(unique_labels))
   
   seq_employed <- seqdef(filtered_data[,-1],
                          alphabet = unique_labels,
@@ -395,17 +396,39 @@ pp  =  function(data, target_states){
 #######################################################
 #INTER_S_TO_NS:  EDU_INST_EDU_IG", "EDU_GOV_EDU_IG
 data = clean_data_subset2
-
+View(data)
 category_map <- list(
   "Intra_NS_to_NS"            = c("EDU_IG_EDU_IG"),
   "Intra_S_to_NS"      =    c("EDU_INST_EDU_IG", "EDU_GOV_EDU_IG"),
   "Inter_NS_to_NS"            = c("OTH_IG_EDU_IG", "POL_PA_EDU_IG", "PRIV_SEC_EDU_IG", "MEDIA_EDU_IG"),
-  "Inter_S_to-NS"   = c("OTH_GOV_EDU_IG", "PARL_EDU_IG", "LOC_GOV_EDU_IG")
+  "Inter_S_to_NS"   = c("OTH_GOV_EDU_IG", "PARL_EDU_IG", "LOC_GOV_EDU_IG")
 )
 #######################################################
 target_states = category_map$Intra_NS_to_NS 
 pp(data, target_states)
 #######################################################
+target_states = category_map$Intra_S_to_NS 
+pp(data, target_states)
+######################################################
+target_states = category_map$Inter_NS_to_NS 
+pp(data, target_states)
+#####################################################
+target_states = category_map$Inter_S_to_NS 
+pp(data, target_states)
+####################################################
+# Only intra sectoral
+target_states = c(category_map$Intra_NS_to_NS,category_map$Intra_S_to_NS) 
+pp(data, target_states)
+###################################################
+#Only intersectoral
+target_states = c(category_map$Inter_NS_to_NS,category_map$Inter_S_to_NS) 
+target_states = c("OTH_IG_EDU_IG", "POL_PA_EDU_IG", "PRIV_SEC_EDU_IG", 
+"MEDIA_EDU_IG","OTH_GOV_EDU_IG", "PARL_EDU_IG", "LOC_GOV_EDU_IG") 
+
+pp(data, target_states)
+
+###################################################
+
 target_states = category_map$Intra_S_to_NS 
 pp(data, target_states)
 
