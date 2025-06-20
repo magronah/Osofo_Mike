@@ -9,16 +9,16 @@ library(here)
 ###################################################################
 data  =  read.csv("mike_data.csv")
 ###################################################################
-names(data)[names(data) == "Step10"] <- "Tenth_Position"
-names(data)[names(data) == "Step11"] <- "Eleventh_Position"
-names(data)[names(data) == "Step12"] <- "Twelfth_Position"
-names(data)[names(data) == "Step13"] <- "Thirteenth_Position"
-###################################################################
-######## Rename all position columns consistently############
-names(data)[names(data) == "Step10"] <- "Tenth_Position"
-names(data)[names(data) == "Step11"] <- "Eleventh_Position"
-names(data)[names(data) == "Step12"] <- "Twelfth_Position"
-names(data)[names(data) == "Step13"] <- "Thirteenth_Position"
+#### Rename Step10 to Step13 to their corresponding position names
+position_renames <- c(
+  Step10 = "Tenth_Position",
+  Step11 = "Eleventh_Position",
+  Step12 = "Twelfth_Position",
+  Step13 = "Thirteenth_Position"
+)
+
+names(data)[names(data) %in% names(position_renames)] <- 
+  position_renames[names(data)[names(data) %in% names(position_renames)]]
 ###################################################################
 ######### Define the sequence of positions ############
 positions <- c("First_Position", "Second_Position", "Third_Position", 
@@ -37,47 +37,32 @@ for (i in 1:(length(positions) - 1)) {
 
 merged_cols <- paste0("Merged_", 1:12, "_", 2:13)
 ########################################################################
-# Step 1: Extract raw unique entries
-raw_entries <- unique(unlist(data[merged_cols]))
-
-# Step 2: Clean each entry, keeping underscores, removing other special characters
-clean_entries <- gsub("[^A-Za-z0-9_]", "", raw_entries)
-
-# Step 3: Check for and remove any accidental duplicates
+## Clean up entries, removing spaces and special characters
+raw_entries          <- unique(unlist(data[merged_cols]))
+clean_entries        <- gsub("[^A-Za-z0-9_]", "", raw_entries)
 unique_clean_entries <- unique(clean_entries)
 
-# Generate distinct colors
-n <- length(unique_clean_entries)
-# colors_vector <- rainbow(n)
-
-# Step 4: Replace original data values with cleaned ones
-entry_map <- setNames(clean_entries, raw_entries)
+#n           <- length(unique_clean_entries)
+entry_map            <-  setNames(clean_entries, raw_entries)
 ########################################################################
 clean_data =  data
 clean_data[merged_cols] <- lapply(clean_data[merged_cols], function(col) {
   entry_map[as.character(col)]
 })
 ########################################################################
-# Subset to ID and merged columns, rename merged columns to transfer1, ..., transfer12
-clean_data_subset <- clean_data[, grepl("^ID$", names(clean_data)) | grepl("Merged", names(clean_data))]
-n_transfers <- ncol(clean_data_subset) - 1  
-names(clean_data_subset) <- c("ID", paste0("transfer", 1:n_transfers))
+###' Create transfer data by merging columns and 
+###' rename merged columns to transfer1, ..., transfer12
+
+transfer_data <- clean_data[, grepl("^ID$", names(clean_data)) | 
+                              grepl("Merged", names(clean_data))]
+
+n_transfers <- ncol(transfer_data) - 1  
+names(transfer_data) <- c("ID", paste0("transfer", 1:n_transfers))
 ###############################################################
+## Set colors
 na_index <- which(unique_clean_entries == "NA_NA")
 transfer_colors  <-  rainbow(length(unique_clean_entries))
 transfer_colors[na_index] <- "white"
-
-# Define sequence object
-# transfers_seq <- seqdef(clean_data_subset[ , -1],
-#                         alphabet = unique_clean_entries,
-#                         labels = unique_clean_entries,
-#                         xtstep = 1,
-#                         cpal = transfer_colors)
-
-# seqIplot(transfers_seq,
-#          with.legend = "right",
-#          main = "Individual Transfer Trajectories",
-#          cex.legend = 0.6)
 ###############################################################
 selected_states <- c(
   "EDU_GOV_EDU_IG",
@@ -90,29 +75,66 @@ selected_states <- c(
   "POL_PA_EDU_IG",
   "PRIV_SEC_EDU_IG",
   "Media_EDU_IG"
-  )
+)
 ###############################################################
-filtered_data  <-  clean_data_subset
-filtered_data[ , -1] <- lapply(filtered_data[ , -1], function(col) {
-  ifelse(col %in% selected_states, col, NA)
-})
-
-head(filtered_data, 15)
-filtered_data[ , -1] <- lapply(filtered_data[ , -1], function(col) {
-  col <- as.character(col)
-  col[is.na(col)] <- "NA"
+## set everything other than those in selected_states to NA
+clean_filtered_data  <-  transfer_data
+clean_filtered_data[ , -1] <- lapply(clean_filtered_data[ , -1], function(col) {
+  col <- ifelse(col %in% selected_states, as.character(col), "NA")
   return(col)
 })
-
-unique_transfers <- sort(unique(unlist(filtered_data[, -1])))
+unique_transfers <- sort(unique(unlist(clean_filtered_data[, -1])))
 transfer_colors <- rainbow(length(unique_transfers))
 
-# White color for "NA_NA"
+########### White color for "NA_NA"
 if ("NA" %in% unique_transfers) {
   transfer_colors[which(unique_transfers == "NA")] <- "white"
 }
-
-transfers_seq <- seqdef(filtered_data[ , -1],
+############################################################
+################################################################
+seq_func  =  function(data, target_states){
+  
+  transfer_cols  <-  setdiff(names(data), "ID")
+  filtered_data <- data[apply(data[transfer_cols], 1, 
+                              function(row) {any(row %in% target_states,
+                                                 na.rm = TRUE) }), ]
+  
+  filtered_data[transfer_cols] <- lapply(filtered_data[transfer_cols], function(col) {
+    ifelse(col %in% target_states, col, NA)
+  })
+  
+  
+  all_states <- unlist(filtered_data[, -1])
+  all_states <- all_states[!is.na(all_states)]
+  
+  category_counts <- sort(table(all_states))
+  
+  category_counts <- sort(table(all_states))
+  category_labels_with_counts <- paste0(names(category_counts), 
+                                        " (n = ", category_counts, ")")
+  
+  names(category_labels_with_counts) <- names(category_counts)
+  unique_labels <- sort(unique(all_states))
+  
+  final_labels <- category_labels_with_counts[unique_labels]
+  transfer_colors <- rainbow(length(unique_labels))
+  
+  seq_employed <- seqdef(filtered_data[,-1],
+                         alphabet = unique_labels,
+                         cpal     = transfer_colors,
+                         labels   = final_labels,
+                         xtstep   = 1)
+  
+  seqIplot(seq_employed,
+           with.legend = "right",
+           main = "Individual Transfer Trajectories",
+           cex.legend = 0.6)
+  
+}
+############################################################
+seq_func(data, unique_transfers)
+  
+transfers_seq <- seqdef(clean_filtered_data[ , -1],
                         alphabet = unique_transfers,
                         labels   = unique_transfers,
                         xtstep = 1,
@@ -124,42 +146,40 @@ seqIplot(transfers_seq,
          main = "Individual Transfer Trajectories",
          cex.legend = 0.6)
 #############################################################
-head(filtered_data,10)
-
-all_transfers <- unlist(filtered_data[, -1])
-
-transfer_counts <- table(all_transfers)
-
-# Convert to data frame for easier viewing/manipulation
-transfer_counts_df <- as.data.frame(transfer_counts)
-
-# Optional: Rename columns
-colnames(transfer_counts_df) <- c("Transfer", "Count")
-
-# View sorted by most frequent
-transfer_counts_df <- transfer_counts_df[order(-transfer_counts_df$Count), ]
-View(transfer_counts_df)
-names(transfer_counts_df)
-
-## This plot removes the the NAs before ploting
-transfer_counts_df %>%
-  filter(!(Transfer == "NA")) %>%
-  ggplot(aes(Transfer, Count, group = 1)) +
-  geom_point() +
-  geom_line() +
-  theme_bw()
-
-## This plot includes the NAs as well
-ggplot(transfer_counts_df, aes(Transfer, Count, group = 1)) +
-  geom_point() +
-  geom_line() +
-  theme_bw() 
+# all_transfers <- unlist(clean_filtered_data[, -1])
+# 
+# transfer_counts <- table(all_transfers)
+# 
+# # Convert to data frame for easier viewing/manipulation
+# transfer_counts_df <- as.data.frame(transfer_counts)
+# 
+# # Optional: Rename columns
+# colnames(transfer_counts_df) <- c("Transfer", "Count")
+# 
+# # View sorted by most frequent
+# transfer_counts_df <- transfer_counts_df[order(-transfer_counts_df$Count), ]
+# View(transfer_counts_df)
+# names(transfer_counts_df)
+# 
+# ## This plot removes the the NAs before ploting
+# transfer_counts_df %>%
+#   filter(!(Transfer == "NA")) %>%
+#   ggplot(aes(Transfer, Count, group = 1)) +
+#   geom_point() +
+#   geom_line() +
+#   theme_bw()
+# 
+# ## This plot includes the NAs as well
+# ggplot(transfer_counts_df, aes(Transfer, Count, group = 1)) +
+#   geom_point() +
+#   geom_line() +
+#   theme_bw() 
 ###########################################################################
 selected_states_na       <-  c(selected_states, "NA_NA")
 transfer_colors_filtered <-  rainbow(length(selected_states))
 transfer_colors_na       <-  c(transfer_colors_filtered, "white")
 
-# transfers_seq <- seqdef(clean_data_subset[ , -1],
+# transfers_seq <- seqdef(transfer_data[ , -1],
 #                         alphabet = selected_states_na,
 #                         labels   = selected_states_na,
 #                         xtstep = 1,
@@ -175,7 +195,7 @@ transfer_colors_na       <-  c(transfer_colors_filtered, "white")
 
 
 # Get all transitions into one vector
-all_transfers <- unlist(filtered_data[, -1])
+all_transfers <- unlist(clean_filtered_data[, -1])
 
 # Count occurrences
 transfer_counts <- table(all_transfers)
@@ -190,7 +210,7 @@ labels_with_counts <- sapply(unique_transfers, function(tr) {
   paste0(tr, " (", count, ")")
 })
 
-transfers_seq <- seqdef(filtered_data[ , -1],
+transfers_seq <- seqdef(clean_filtered_data[ , -1],
                         alphabet = unique_transfers,
                         labels   = labels_with_counts,  # <-- counts shown here
                         xtstep   = 1,
@@ -205,7 +225,7 @@ seqIplot(transfers_seq,
 
 ###############################################################
 # Clean whitespace and special characters in transfer columns
-data_clean <- clean_data_subset %>%
+data_clean <- transfer_data %>%
   mutate(across(starts_with("transfer"), ~ gsub("[[:space:]]|\\n|\\\\|&", "", .)))
 
 # Extract unique transitions actually used in data
@@ -226,7 +246,7 @@ transfers_seq <- seqdef(data_clean[ , -1],
 ########################################################################
 
 
-data_clean <- clean_data_subset %>%
+data_clean <- transfer_data %>%
   mutate(across(starts_with("Transfer"), ~ gsub("[[:space:]]|\\n|\\\\|&", "", .)))
 
 unique_transfers <- unique(unlist(data_clean[ , -1]))  
@@ -262,7 +282,7 @@ transfer_to_category <- unlist(lapply(names(category_map), function(category) {
 }))
 
 # Make a copy
-recat_data <- filtered_data
+recat_data <- clean_filtered_data
 
 # Apply the recoding to each column except ID
 recat_data[ , -1] <- lapply(recat_data[ , -1], function(col) {
@@ -316,27 +336,27 @@ seqIplot(cat_seq,
          main = "Transfer Category Trajectories (with Counts)",
          cex.legend = 0.6)
 ################################################################
-clean_data_subset2  =  clean_data_subset
+transfer_data2  =  transfer_data
 # ddf   =  data.frame(ID    =  data$ID,
 #                    Type   =  data$Recruitment.Type)
 # 
 # 
-# ddf2  =  left_join(clean_data_subset2, ddf, by  = "ID")
+# ddf2  =  left_join(transfer_data2, ddf, by  = "ID")
 
 ################################################################
 #INTER_NS_TO_NS
-filtered_data_interNSNS <- clean_data_subset2[apply(clean_data_subset2[transfer_cols], 1, function(row) {
+clean_filtered_data_interNSNS <- transfer_data2[apply(transfer_data2[transfer_cols], 1, function(row) {
   any(row == "EDU_IG_EDU_IG", na.rm = TRUE)
 }), ]
 
-filtered_data_interNSNS[transfer_cols] <- lapply(filtered_data_interNSNS[transfer_cols], function(col) {
+clean_filtered_data_interNSNS[transfer_cols] <- lapply(clean_filtered_data_interNSNS[transfer_cols], function(col) {
   ifelse(col == "EDU_IG_EDU_IG", col, NA)
 })
 all_statesNSNS  = "EDU_IG_EDU_IG"
 
 transfer_colors <- c("EDU_IG_EDU_IG" = "#1f77b4") 
 
-seq_employed <- seqdef(filtered_data_interNSNS[,-1],
+seq_employed <- seqdef(clean_filtered_data_interNSNS[,-1],
                        alphabet = all_statesNSNS,
                        cpal     = transfer_colors,
                        labels   = all_statesNSNS,
@@ -347,50 +367,10 @@ seqIplot(seq_employed,
          main = "Individual Transfer Trajectories",
          cex.legend = 0.6)
 
-################################################################
-pp  =  function(data, target_states){
-  
-  transfer_cols  <-  setdiff(names(data), "ID")
-  filtered_data <- data[apply(data[transfer_cols], 1, 
-                              function(row) {any(row %in% target_states,
-                                                 na.rm = TRUE) }), ]
-  
-  filtered_data[transfer_cols] <- lapply(filtered_data[transfer_cols], function(col) {
-    ifelse(col %in% target_states, col, NA)
-  })
-  
- 
-  all_states <- unlist(filtered_data[, -1])
-  all_states <- all_states[!is.na(all_states)]
-  
-  category_counts <- sort(table(all_states))
-  
-  category_counts <- sort(table(all_states))
-  category_labels_with_counts <- paste0(names(category_counts), 
-                                        " (n = ", category_counts, ")")
-  
-  names(category_labels_with_counts) <- names(category_counts)
-  unique_labels <- sort(unique(all_states))
-  
-  final_labels <- category_labels_with_counts[unique_labels]
-  transfer_colors <- rainbow(length(unique_labels))
-  
-  seq_employed <- seqdef(filtered_data[,-1],
-                         alphabet = unique_labels,
-                         cpal     = transfer_colors,
-                         labels   = final_labels,
-                         xtstep   = 1)
-  
-  seqIplot(seq_employed,
-           with.legend = "right",
-           main = "Individual Transfer Trajectories",
-           cex.legend = 0.6)
-  
-}
 
 #######################################################
 #INTER_S_TO_NS:  EDU_INST_EDU_IG", "EDU_GOV_EDU_IG
-data = clean_data_subset2
+data = transfer_data2
 category_map <- list(
   "Intra_NS_to_NS"            = c("EDU_IG_EDU_IG"),
   "Intra_S_to_NS"      =    c("EDU_INST_EDU_IG", "EDU_GOV_EDU_IG"),
@@ -421,7 +401,7 @@ target_states = c(category_map$Inter_NS_to_NS,category_map$Inter_S_to_NS)
 
 pp(data, target_states)
 ###################################################
-ddf2  =  left_join(clean_data_subset2, ddf, by  = "ID")
+ddf2  =  left_join(transfer_data2, ddf, by  = "ID")
 
 ddf_elected  <- ddf2[ddf2$Type == "Elected", ]
 ddf_employed <- ddf2[ddf2$Type == "Employed", ]
@@ -480,10 +460,10 @@ all_states      <-   unlist(filtered_data[, -1])
 all_states      <-   all_states[!is.na(all_states)]
 category_counts <-   sort(table(all_states))
 
-filtered_data_interSNS <- clean_data_subset2[apply(clean_data_subset2[transfer_cols], 1, 
+filtered_data_interSNS <- transfer_data2[apply(transfer_data2[transfer_cols], 1, 
                                                    function(row) {
-  any(row %in% target_states, na.rm = TRUE)
-}), ]
+                                                     any(row %in% target_states, na.rm = TRUE)
+                                                   }), ]
 
 
 all_states <- unlist(filtered_data_interSNS[, -1])
