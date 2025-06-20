@@ -117,17 +117,15 @@ unique_transfers <- sort(unique(unlist(clean_filtered_data[, -1])))
 #if ("NA" %in% unique_transfers) {
 #  transfer_colors[which(unique_transfers == "NA")] <- "white"
 #}
-############################################################
 ################################################################
 seq_func(clean_filtered_data[ , -1], unique_transfers)
 #############################################################
 #############################################################
-selected_states_na       <-  c(selected_states, "NA_NA")
-transfer_colors_filtered <-  rainbow(length(selected_states))
-transfer_colors_na       <-  c(transfer_colors_filtered, "white")
+#selected_states_na       <-  c(selected_states, "NA_NA")
+#transfer_colors_filtered <-  rainbow(length(selected_states))
+#transfer_colors_na       <-  c(transfer_colors_filtered, "white")
 
-View(clean_filtered_data)
-seq_func(clean_filtered_data[ , -1], transfer_colors_na)
+#seq_func(clean_filtered_data[ , -1], transfer_colors_na)
 
 transfers_seq <- seqdef(transfer_data[ , -1],
                         alphabet = selected_states_na,
