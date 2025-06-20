@@ -54,6 +54,11 @@ plot1  =  ggplot(dd, aes(Transfer,Proportion, group = 1)) +
   
 ggsave(paste0("Results_Findings/","transfer_count.png"), 
        plot = plot1, width = plot_width, height = plot_height, dpi = 300)
+
+write.csv(dd, file = paste0("Results_Findings/","count_data.csv"),
+          row.names = FALSE)
+rr  = read.csv(paste0("Results_Findings/","count_data.csv"))
+View(rr)
 ################# Generate concatenated columns #####################
 for (i in 1:(length(positions) - 1)) {
   col1 <- positions[i]
