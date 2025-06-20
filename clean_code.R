@@ -1,5 +1,6 @@
 library(cluster) 
 library(dplyr) 
+library(tidyr)
 library(psych)  
 library(reshape) 
 library(TraMineR)  
@@ -7,8 +8,13 @@ library(TraMineRextras)
 library(ggplot2)
 library(here)
 ###################################################################
+source("functions.R")
+plot_path =  "Results_Findings"
+###################################################################
+## Reading the csv file
 data  =  read.csv("mike_data.csv")
 ###################################################################
+## Data cleaning 
 #### Rename Step10 to Step13 to their corresponding position names
 position_renames <- c(
   Step10 = "Tenth_Position",
@@ -27,6 +33,27 @@ positions <- c("First_Position", "Second_Position", "Third_Position",
                "Tenth_Position", "Eleventh_Position", "Twelfth_Position", 
                "Thirteenth_Position")
 ##########################################################################
+sub_data   <-   data[ , grepl("Position", names(data))]
+sub_data[] <- lapply(sub_data, function(x) {
+  if (is.factor(x)) x <- as.character(x)
+  x <- gsub("\\n", "", x)  
+  x <- trimws(x)    
+})
+
+dd           =  as.data.frame(table(na.omit(unlist(sub_data))))
+dd$Prop      =  dd$Freq/sum(dd$Freq)
+colnames(dd) =  c("Transfer", "Frequency", "Proportion")
+
+plot_size =  12; plot_width  =  10; plot_height = 4
+plot1  =  ggplot(dd, aes(Transfer,Proportion, group = 1)) + 
+         geom_point() +
+         geom_line() + 
+         custom_theme(plot_size) +
+  ggtitle("Proportion of Transfer Categories")
+
+  
+ggsave(paste0("Results_Findings/","transfer_count.png"), 
+       plot = plot1, width = plot_width, height = plot_height, dpi = 300)
 ################# Generate concatenated columns #####################
 for (i in 1:(length(positions) - 1)) {
   col1 <- positions[i]
@@ -36,7 +63,7 @@ for (i in 1:(length(positions) - 1)) {
 }
 
 merged_cols <- paste0("Merged_", 1:12, "_", 2:13)
-########################################################################
+
 ## Clean up entries, removing spaces and special characters
 raw_entries          <- unique(unlist(data[merged_cols]))
 clean_entries        <- gsub("[^A-Za-z0-9_]", "", raw_entries)
@@ -84,106 +111,29 @@ clean_filtered_data[ , -1] <- lapply(clean_filtered_data[ , -1], function(col) {
   return(col)
 })
 unique_transfers <- sort(unique(unlist(clean_filtered_data[, -1])))
-transfer_colors <- rainbow(length(unique_transfers))
+#transfer_colors <- rainbow(length(unique_transfers))
 
 ########### White color for "NA_NA"
-if ("NA" %in% unique_transfers) {
-  transfer_colors[which(unique_transfers == "NA")] <- "white"
-}
+#if ("NA" %in% unique_transfers) {
+#  transfer_colors[which(unique_transfers == "NA")] <- "white"
+#}
 ############################################################
 ################################################################
-seq_func  =  function(data, target_states){
-  
-  transfer_cols  <-  setdiff(names(data), "ID")
-  filtered_data <- data[apply(data[transfer_cols], 1, 
-                              function(row) {any(row %in% target_states,
-                                                 na.rm = TRUE) }), ]
-  
-  filtered_data[transfer_cols] <- lapply(filtered_data[transfer_cols], function(col) {
-    ifelse(col %in% target_states, col, NA)
-  })
-  
-  
-  all_states <- unlist(filtered_data[, -1])
-  all_states <- all_states[!is.na(all_states)]
-  
-  category_counts <- sort(table(all_states))
-  
-  category_counts <- sort(table(all_states))
-  category_labels_with_counts <- paste0(names(category_counts), 
-                                        " (n = ", category_counts, ")")
-  
-  names(category_labels_with_counts) <- names(category_counts)
-  unique_labels <- sort(unique(all_states))
-  
-  final_labels <- category_labels_with_counts[unique_labels]
-  transfer_colors <- rainbow(length(unique_labels))
-  
-  seq_employed <- seqdef(filtered_data[,-1],
-                         alphabet = unique_labels,
-                         cpal     = transfer_colors,
-                         labels   = final_labels,
-                         xtstep   = 1)
-  
-  seqIplot(seq_employed,
-           with.legend = "right",
-           main = "Individual Transfer Trajectories",
-           cex.legend = 0.6)
-  
-}
-############################################################
-seq_func(data, unique_transfers)
-  
-transfers_seq <- seqdef(clean_filtered_data[ , -1],
-                        alphabet = unique_transfers,
-                        labels   = unique_transfers,
-                        xtstep = 1,
-                        cpal = transfer_colors)
-
-
-seqIplot(transfers_seq,
-         with.legend = "right",
-         main = "Individual Transfer Trajectories",
-         cex.legend = 0.6)
+seq_func(clean_filtered_data[ , -1], unique_transfers)
 #############################################################
-# all_transfers <- unlist(clean_filtered_data[, -1])
-# 
-# transfer_counts <- table(all_transfers)
-# 
-# # Convert to data frame for easier viewing/manipulation
-# transfer_counts_df <- as.data.frame(transfer_counts)
-# 
-# # Optional: Rename columns
-# colnames(transfer_counts_df) <- c("Transfer", "Count")
-# 
-# # View sorted by most frequent
-# transfer_counts_df <- transfer_counts_df[order(-transfer_counts_df$Count), ]
-# View(transfer_counts_df)
-# names(transfer_counts_df)
-# 
-# ## This plot removes the the NAs before ploting
-# transfer_counts_df %>%
-#   filter(!(Transfer == "NA")) %>%
-#   ggplot(aes(Transfer, Count, group = 1)) +
-#   geom_point() +
-#   geom_line() +
-#   theme_bw()
-# 
-# ## This plot includes the NAs as well
-# ggplot(transfer_counts_df, aes(Transfer, Count, group = 1)) +
-#   geom_point() +
-#   geom_line() +
-#   theme_bw() 
-###########################################################################
+#############################################################
 selected_states_na       <-  c(selected_states, "NA_NA")
 transfer_colors_filtered <-  rainbow(length(selected_states))
 transfer_colors_na       <-  c(transfer_colors_filtered, "white")
 
-# transfers_seq <- seqdef(transfer_data[ , -1],
-#                         alphabet = selected_states_na,
-#                         labels   = selected_states_na,
-#                         xtstep = 1,
-#                         cpal = transfer_colors_na)
+View(clean_filtered_data)
+seq_func(clean_filtered_data[ , -1], transfer_colors_na)
+
+transfers_seq <- seqdef(transfer_data[ , -1],
+                        alphabet = selected_states_na,
+                        labels   = selected_states_na,
+                        xtstep = 1,
+                        cpal = transfer_colors_na)
 
 
 
