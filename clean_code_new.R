@@ -130,7 +130,7 @@ category_map <- list(
   "Intra_S_to_NS"      =  c("EDU_INST_EDU_IG", "EDU_GOV_EDU_IG"),
   
   "Inter_NS_to_NS"     =  c("OTH_IG_EDU_IG", "POL_PA_EDU_IG", 
-                            "PRIV_SEC_EDU_IG", "MEDIA_EDU_IG"),
+                            "PRIV_SEC_EDU_IG", "Media_EDU_IG"),
   
   "Inter_NS_to_S"      =  c("EDU_IG_OTH_GOV", "EDU_IG_PARL", 
                             "EDU_IG_LOC_GOV"),
