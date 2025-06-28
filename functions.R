@@ -38,9 +38,9 @@ seq_func  =  function(data, target_states,
   final_labels <- category_labels_with_counts[unique_labels]
   transfer_colors <- rainbow(length(unique_labels))
   
-  if ("NA" %in% unique_labels) {
-    transfer_colors[which(unique_labels == "NA")] <- "white"
-  }
+  #if ("NA" %in% unique_labels) {
+    #transfer_colors[which(unique_labels == "NA")] <- "white"
+  #}
   
   seq_employed <- seqdef(filtered_data[,-1],
                          alphabet = unique_labels,
