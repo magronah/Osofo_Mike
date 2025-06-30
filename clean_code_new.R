@@ -119,7 +119,7 @@ clean_filtered_data[ , -1] <- lapply(clean_filtered_data[ , -1], function(col) {
 unique_transfers <- sort(unique(unlist(clean_filtered_data[, -1])))
 ################################################################
 seq_func(clean_filtered_data, unique_transfers,
-         plot_title = "Interest groups transfer patterns")
+         plot_title = "Interest Group Leaders' Career Transfer Events")
 #############################################################
 # Define your category mapping
 category_map <- list(
@@ -157,55 +157,61 @@ unique(unlist(recat_data[ , -1]))
 
 unique_labels <- sort(na.omit(unique(unlist(recat_data[ , -1]))))
 seq_func(recat_data, unique_labels,
-         plot_title = "Types of transfer events")
+         plot_title = "Interest Group Leaders'Career Transfer Events")
 ################################################################
 transfer_data2  = transfer_data
 ################################################################
 transfer_cols  <-  setdiff(names(transfer_data), "ID")
 #######################################################
 target_states = category_map$Intra_NS_to_NS 
-seq_func(clean_filtered_data, target_states, plot_title = "Types of transfer events")
+seq_func(clean_filtered_data, target_states, plot_title = "Intra-sectoral NonState to Non- Transfer Events")
 #######################################################
 target_states = category_map$Intra_S_to_NS 
-seq_func(clean_filtered_data, target_states, plot_title = "Types of transfer events")
+seq_func(clean_filtered_data, target_states, plot_title = "Intra-sectoral State to Non-state Transfer Events")
 ######################################################
 target_states = category_map$Inter_NS_to_NS 
-seq_func(clean_filtered_data, target_states, plot_title = "Types of transfer events")
+seq_func(clean_filtered_data, target_states, plot_title = "Inter-sectoral NonState to Non-state Transfer Events")
 #####################################################
 target_states = category_map$Inter_S_to_NS 
-seq_func(clean_filtered_data, target_states, plot_title = "Types of transfer events")
+seq_func(clean_filtered_data, target_states, plot_title = "Inter-sectoral State to Non-state Transfer")
 ####################################################
 target_states = category_map$Inter_NS_to_S 
-seq_func(clean_filtered_data, target_states, plot_title = "Types of transfer events")
+seq_func(clean_filtered_data, target_states, plot_title = "Inter-sectoral NonState to State Transfer Events")
 ####################################################
 target_states = category_map$Intra_NS_to_S 
-seq_func(clean_filtered_data, target_states, plot_title = "Types of transfer events")
+seq_func(clean_filtered_data, target_states, plot_title = "Intra-sectoral NonState to State Transfer Events")
 ####################################################
 # Only intra sectoral
 target_states = c(category_map$Intra_NS_to_NS,
                   category_map$Intra_S_to_NS, 
                   category_map$Intra_NS_to_S) 
 
-seq_func(clean_filtered_data, target_states, plot_title = "Types of transfer events")
+seq_func(clean_filtered_data, target_states, plot_title = "Intra-sectoral Transfer Events")
 ###################################################
 #Only intersectoral
 target_states = c(category_map$Inter_NS_to_NS,
                   category_map$Inter_S_to_NS,
                   category_map$Inter_NS_to_S) 
 
-seq_func(clean_filtered_data, target_states, plot_title = "Types of transfer events")
+seq_func(clean_filtered_data, target_states, plot_title = "Inter-sectoral Transfer Events")
 ###################################################
 #Only NS_NS
 target_states = c(category_map$Intra_NS_to_NS,
                   category_map$Inter_NS_to_NS) 
 
-seq_func(clean_filtered_data, target_states, plot_title = "Types of transfer events")
+seq_func(clean_filtered_data, target_states, plot_title = "Non-state to Non-state Transfer Events")
 ###################################################
 #Only S_NS
 target_states = c(category_map$Intra_S_to_NS,
                   category_map$Inter_S_to_NS) 
 
-seq_func(clean_filtered_data, target_states, plot_title = "Types of transfer events")
+seq_func(clean_filtered_data, target_states, plot_title = "State to Non-state Transfer Events")
+###################################################
+#Only NS_S
+target_states = c(category_map$Intra_NS_to_S,
+                  category_map$Inter_NS_to_S) 
+
+seq_func(clean_filtered_data, target_states, plot_title = "Non-state to State Transfer Events")
 ###################################################
 ddf   =  data.frame(ID    =  data$ID,
                     Type   =  data$Recruitment.Type)
@@ -215,8 +221,8 @@ ddf_elected  <- ddf2[ddf2$Type == "Elected", ]
 ddf_employed <- ddf2[ddf2$Type == "Employed", ]
 
 target_states   =  unlist(category_map)
-seq_func(ddf_elected, target_states, plot_title = "Types of transfer events")
-seq_func(ddf_employed, target_states, plot_title = "Types of transfer events")
+seq_func(ddf_elected, target_states, plot_title = "Elected Leaders Career Transfer Events")
+seq_func(ddf_employed, target_states, plot_title = "Employed Leadders Career Transfer Events")
 
 ###################################################
 ## elected and employed categorised to the 6 sectors
@@ -240,7 +246,21 @@ ddf_employed_sec[ , -1] <- lapply(ddf_employed_sec[ , -1], function(col) {
 unique_labels <- sort(na.omit(unique(unlist(ddf_employed_sec[ , -1]))))
 
 seq_func(ddf_employed_sec[ , -1], unique_labels, 
-         plot_title = "Employed Leaders Career Transfer")
+         plot_title = "Employed Leaders Career Transfer Patterns")
+
+####################################################
+#Only elected
+ddf_elected_sec   =  ddf_elected
+ddf_elected_sec[ , -1] <- lapply(ddf_elected_sec[ , -1], function(col) {
+  recoded <- transfer_to_category[as.character(col)]  # use names to map
+  #recoded[is.na(col)] <- NA  # Preserve NA
+  return(recoded)
+})
+
+unique_labels <- sort(na.omit(unique(unlist(ddf_elected_sec[ , -1]))))
+
+seq_func(ddf_elected_sec[ , -1], unique_labels, 
+         plot_title = "Elected Leaders Career Transfer Patterns")
 
 ###################################################
 ddf_Prof  <- data.frame(ID = data$ID, 
@@ -272,13 +292,13 @@ ddf_providers_sec[ , -1] <- lapply(ddf_providers_sec[ , -1], function(col) {
 ########################################################
 unique_labels <- sort(na.omit(unique(unlist(ddf_profession_sec[ , -1]))))
 seq_func(ddf_profession_sec, unique_labels,
-         plot_title = "Type of represented interest (Profession)")
+         plot_title = "Career Transfer Patterns of Leaders Representing Employees")
 
 seq_func(ddf_user_sec, unique_labels,
-         plot_title = "Type of represented interest (Users)")
+         plot_title = "Career Transfer Patterns of Leaders Representing Service Users")
 
 seq_func(ddf_providers_sec, unique_labels,
-         plot_title = "Type of represented interest (Provider)")
+         plot_title = "Career Transfer Patterns of Leaders Representing Employers")
 #########################################################
 
 
