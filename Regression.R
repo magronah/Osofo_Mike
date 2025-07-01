@@ -119,12 +119,63 @@ ddf_long_clean <- na.omit(ddf) %>%
     !grepl("_NA", transfer_value),              # remove values that contain "_NA"
     transfer_value != "NA_NA"                   # remove exact match "NA_NA"
   )
-
 ##########################
+
+category_map <- list(
+  "Intra_NS_to_NS"     =   c("EDU_IG_EDU_IG"),
+  
+  "Intra_NS_to_S"      =   c("EDU_IG_EDU_INST", "EDU_IG_EDU_GOV"),
+  
+  "Intra_S_to_NS"      =  c("EDU_INST_EDU_IG", "EDU_GOV_EDU_IG"),
+  
+  "Inter_NS_to_NS"     =  c("OTH_IG_EDU_IG", "POL_PA_EDU_IG", 
+                            "PRIV_SEC_EDU_IG", "Media_EDU_IG"),
+  
+  "Inter_NS_to_S"      =  c("EDU_IG_OTH_GOV", "EDU_IG_PARL", 
+                            "EDU_IG_LOC_GOV"),
+  
+  "Inter_S_to_NS"   =     c("OTH_GOV_EDU_IG", "PARL_EDU_IG", 
+                            "LOC_GOV_EDU_IG")
+)
+
+dd_filtered <- ddf_long_clean %>%
+  filter(transfer_value %in% unlist(category_map)) %>%
+  mutate(transfer_pattern = case_when(
+    transfer_value %in% category_map$Intra_NS_to_NS ~ "Intra_NS_to_NS",
+    transfer_value %in% category_map$Intra_NS_to_S ~ "Intra_NS_to_S",
+    transfer_value %in% category_map$Intra_S_to_NS ~ "Intra_S_to_NS",
+    transfer_value %in% category_map$Inter_NS_to_NS ~ "Inter_NS_to_NS",
+    transfer_value %in% category_map$Inter_NS_to_S ~ "Inter_NS_to_S",
+    transfer_value %in% category_map$Inter_S_to_NS ~ "Inter_S_to_NS"
+  ))
+unique(dd_filtered$position_value)
+##########################
+category_map2 =  list( state =  c("EDU_INST","EDU_GOV", "LOC_GOV","OTH_GOV","PARL"),
+                       nonstate = c("EDU_IG","OTH_IG","PRIV_SEC","Media","POL_PA"))
+dd_filtered <- dd_filtered %>%
+  filter(position_value %in% unlist(category_map2)) %>%
+  mutate(type_of_actors = case_when(
+    position_value %in% category_map2$state ~ "state",
+    position_value %in% category_map2$nonstate ~ "nonstate"
+  ))
+
+#########################
 # Simulate some data
 # Fit multinomial logistic regression model
 # Note: multinom() automatically uses the first level as the baseline
-model <- multinom(transfer_value ~ represented_interest + leadership_type, data = ddf_long_clean)
+model <- multinom(transfer_pattern ~ represented_interest + leadership_type +
+                    type_of_actors, data = dd_filtered)
+
+# Summary of the model
+sum=summary(model)
+
+# Get p-values
+#z <- summary(model)$coefficients / summary(model)$standard.errors
+z <- sum$coefficients / sum$standard.errors
+p <- (1 - pnorm(abs(z))) * 2
+print(p)
+model <- multinom(type_of_actors ~ represented_interest + leadership_type,
+                     data = dd_filtered)
 
 # Summary of the model
 sum=summary(model)
