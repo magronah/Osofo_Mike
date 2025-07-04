@@ -7,12 +7,14 @@ library(TraMineR)
 library(TraMineRextras) 
 library(ggplot2)
 library(here)
+library(readxl)
 ###################################################################
 source("functions.R")
 plot_path =  "Results_Findings"
 ###################################################################
 ## Reading the csv file
 data  =  read.csv("mike_data.csv")
+data2=read_excel("NEW_Sheet_analysis.xlsx")
 ###################################################################
 ## Data cleaning 
 #### Rename Step10 to Step13 to their corresponding position names
@@ -54,6 +56,18 @@ plot1  =  ggplot(dd, aes(Transfer,Proportion, group = 1)) +
 
 ggsave(paste0("Results_Findings/","transfer_count.png"), 
        plot = plot1, width = plot_width, height = plot_height, dpi = 300)
+########################################################################
+plot2=ggplot(dd, aes(x = Transfer, y = Frequency)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  geom_text(aes(label = Frequency), vjust = -0.5, size = 4) +
+  labs(title = "Frequency of Categories",
+       x = "Transfer",
+       y = "Frequency") +
+  custom_theme(plot_size) +
+  ggtitle("Frequency of Transfer Categories")
+ggsave(paste0("Results_Findings/","transfer_frequency.png"), 
+       plot = plot2, width = plot_width, height = 6, dpi = 300)
+########################################################################
 
 write.csv(dd, file = paste0("Results_Findings/","count_data.csv"),
           row.names = FALSE)
