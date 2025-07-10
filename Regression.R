@@ -2,8 +2,22 @@
 library(nnet)
 library(dplyr)
 library(tidyr)
+library(readxl)
 #########################
-data  =  read.csv("mike_data.csv")
+data1  =  read.csv("mike_data.csv")
+#########################
+data2 =  read_excel("NEW_Sheet_analysis.xlsx")
+data22  <-   data2 %>%
+  dplyr::select("ID", "\r\nSex","Education Attainment")
+
+View(data)
+names(data2)
+########################################################
+data   =   left_join(data1, data22, by ="ID")
+data2$Leadership_Position
+data2$`Education Field...8`
+data2$`Sex`
+data2$AGE
 #########################
 ###################################################################
 ## Data cleaning 
@@ -34,8 +48,11 @@ sub_data[] <- lapply(sub_data, function(x) {
 ########################
 sub_data$ID = data$ID
 sub_data$represented_interest = data$Type.of.represented.interest
-
 sub_data$leadership_type = data$Recruitment.Type
+sub_data$Sex      =   data$Sex
+sub_data$Education_Attainment      =   data$`Education Attainment`
+
+
 #####################
 View(sub_data)
 
@@ -149,8 +166,9 @@ dd_filtered <- ddf_long_clean %>%
     transfer_value %in% category_map$Inter_S_to_NS ~ "Inter_S_to_NS"
   ))
 unique(dd_filtered$position_value)
+
 ##########################
-category_map2 =  list( state =  c("EDU_INST","EDU_GOV", "LOC_GOV","OTH_GOV","PARL"),
+category_map2 =  list(state =  c("EDU_INST","EDU_GOV", "LOC_GOV","OTH_GOV","PARL"),
                        nonstate = c("EDU_IG","OTH_IG","PRIV_SEC","Media","POL_PA"))
 dd_filtered <- dd_filtered %>%
   filter(position_value %in% unlist(category_map2)) %>%
@@ -158,22 +176,94 @@ dd_filtered <- dd_filtered %>%
     position_value %in% category_map2$state ~ "state",
     position_value %in% category_map2$nonstate ~ "nonstate"
   ))
+###########################################################################
+category_map3 <- list(
 
-#########################
+  "Intra_NS_to_S"      =   c("EDU_IG_EDU_INST", "EDU_IG_EDU_GOV"),
+  
+  "Intra_S_to_NS"      =  c("EDU_INST_EDU_IG", "EDU_GOV_EDU_IG"),
+  
+  "Inter_NS_to_S"      =  c("EDU_IG_OTH_GOV", "EDU_IG_PARL", 
+                            "EDU_IG_LOC_GOV"),
+  
+  "Inter_S_to_NS"   =     c("OTH_GOV_EDU_IG", "PARL_EDU_IG", 
+                            "LOC_GOV_EDU_IG")
+)
+
+dd_filtered3 <- ddf_long_clean %>%
+  filter(transfer_value %in% unlist(category_map)) %>%
+  mutate(transfer_pattern = case_when(
+    transfer_value %in% c(category_map$Intra_NS_to_S,category_map$Inter_NS_to_S) ~ "Nonstate_State",
+    transfer_value %in% c(category_map$Intra_S_to_NS,category_map$Inter_S_to_NS) ~ "State_Nonstate"
+  ))
+
+
+unique(dd_filtered3$transfer_pattern)
+
+state_to_nonstate <- sum(na.omit(dd_filtered3$transfer_pattern) == "State_Nonstate")
+nonstate_to_state <- sum(na.omit(dd_filtered3$transfer_pattern) == "Nonstate_State")
+
+
+
+x <- c(state_to_nonstate, nonstate_to_state)  
+n <- c(state_to_nonstate + nonstate_to_state, 
+       state_to_nonstate + nonstate_to_state)  # total in both groups (same)
+
+prop.test(x = x, n=n, alternative = "greater")
+###########################################################################
+
+
+####################################
 # Simulate some data
 # Fit multinomial logistic regression model
 # Note: multinom() automatically uses the first level as the baseline
-model <- multinom(transfer_pattern ~ represented_interest + leadership_type +
+model1 <- multinom(transfer_pattern ~ represented_interest + leadership_type +
                     type_of_actors, data = dd_filtered)
 
 # Summary of the model
-sum=summary(model)
+sum=summary(model1)
 
 # Get p-values
 #z <- summary(model)$coefficients / summary(model)$standard.errors
 z <- sum$coefficients / sum$standard.errors
 p <- (1 - pnorm(abs(z))) * 2
 print(p)
+
+##########################################################################
+model2 <- multinom(transfer_pattern ~ represented_interest + leadership_type +
+                    Sex + Education_Attainment + type_of_actors, 
+                  data = dd_filtered)
+
+sum2=summary(model2)
+
+# Get p-values
+#z <- summary(model)$coefficients / summary(model)$standard.errors
+z2 <- sum2$coefficients / sum2$standard.errors
+p2 <- (1 - pnorm(abs(z2))) * 2
+print(p2)
+
+
+#install.packages("broom")
+
+library(broom)
+library(dplyr)
+library(tibble)
+
+coefs1 <- tidy(model1) %>%
+  select(term, estimate) %>%
+  rename(estimate_model1 = estimate)
+
+View(coefs2)
+coefs2 <- tidy(model2) %>%
+  select(term, estimate) %>%
+  rename(estimate_model2 = estimate)
+
+# Join the two tables by term
+comparison_table <- full_join(coefs1, coefs2, by = "term", relationship = "many-to-many")
+
+# Print as a neat tibble
+View(comparison_table)
+
 model <- multinom(type_of_actors ~ represented_interest + leadership_type,
                      data = dd_filtered)
 
