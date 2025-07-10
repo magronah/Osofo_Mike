@@ -171,7 +171,7 @@ unique(unlist(recat_data[ , -1]))
 
 unique_labels <- sort(na.omit(unique(unlist(recat_data[ , -1]))))
 seq_func(recat_data, unique_labels,
-         plot_title = "Interest Group Leaders'Career Transfer Events")
+         plot_title = "Interest Group Leaders'Career Transfer Patterns")
 ################################################################
 transfer_data2  = transfer_data
 ################################################################
