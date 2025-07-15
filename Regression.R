@@ -8,17 +8,12 @@ data1  =  read.csv("mike_data.csv")
 #########################
 data2 =  read_excel("NEW_Sheet_analysis.xlsx")
 data22  <-   data2 %>%
-  dplyr::select("ID", "\r\nSex","Education Attainment")
-
-View(data)
-names(data2)
+  dplyr::select("ID", "AGE", "\r\nSex","Education Attainment", 
+                "Education Field...8", "Leadership_Position")%>%
+  setNames(c("ID", "AGE", "Sex", "Education_Attainment", "Education_Field",
+             "Leadership_Position"))
 ########################################################
 data   =   left_join(data1, data22, by ="ID")
-data2$Leadership_Position
-data2$`Education Field...8`
-data2$`Sex`
-data2$AGE
-#########################
 ###################################################################
 ## Data cleaning 
 #### Rename Step10 to Step13 to their corresponding position names
@@ -54,8 +49,6 @@ sub_data$Education_Attainment      =   data$`Education Attainment`
 
 
 #####################
-View(sub_data)
-
 dd_long <- sub_data %>%
   pivot_longer(
     cols = ends_with("Position"),     # Melt only transfer columns
@@ -65,7 +58,6 @@ dd_long <- sub_data %>%
 
 
 dim(dd_long)
-View(na.omit(dd_long))
 ##########################
 ################# Generate concatenated columns #####################
 for (i in 1:(length(positions) - 1)) {
@@ -80,9 +72,13 @@ sub_data$ID = data$ID
 sub_data$represented_interest = data$Type.of.represented.interest
 
 sub_data$leadership_type = data$Recruitment.Type
+sub_data$Age = data$AGE
+sub_data$Education_Attainment = data$Education_Attainment
+sub_data$Leadership_Position = data$Leadership_Position
+sub_data$Sex = data$Sex
+sub_data$Education_Field = data$Education_Field
+sub_data$Education.Field = data$Education.Field
 #####################
-View(sub_data)
-
 dd_long1 <- sub_data %>%
   pivot_longer(
     cols = ends_with("Position"),     # Melt only transfer columns
@@ -92,8 +88,6 @@ dd_long1 <- sub_data %>%
 
 
 dim(dd_long1)
-View(na.omit(dd_long1))
-
 ################# Generate concatenated columns #####################
 for (i in 1:(length(positions) - 1)) {
   col1 <- positions[i]
@@ -177,6 +171,7 @@ dd_filtered <- dd_filtered %>%
     position_value %in% category_map2$nonstate ~ "nonstate"
   ))
 ###########################################################################
+# Proportion Test to answer hypothesis 1.
 category_map3 <- list(
 
   "Intra_NS_to_S"      =   c("EDU_IG_EDU_INST", "EDU_IG_EDU_GOV"),
@@ -197,9 +192,6 @@ dd_filtered3 <- ddf_long_clean %>%
     transfer_value %in% c(category_map$Intra_S_to_NS,category_map$Inter_S_to_NS) ~ "State_Nonstate"
   ))
 
-
-unique(dd_filtered3$transfer_pattern)
-
 state_to_nonstate <- sum(na.omit(dd_filtered3$transfer_pattern) == "State_Nonstate")
 nonstate_to_state <- sum(na.omit(dd_filtered3$transfer_pattern) == "Nonstate_State")
 
@@ -211,67 +203,63 @@ n <- c(state_to_nonstate + nonstate_to_state,
 
 prop.test(x = x, n=n, alternative = "greater")
 ###########################################################################
-
-
-####################################
-# Simulate some data
-# Fit multinomial logistic regression model
-# Note: multinom() automatically uses the first level as the baseline
-model1 <- multinom(transfer_pattern ~ represented_interest + leadership_type +
-                    type_of_actors, data = dd_filtered)
-
+### Multinomial regression test H2 and H3
+dd_filtered4 <- ddf_long_clean %>%
+  filter(transfer_value %in% unlist(category_map)) %>%
+  mutate(transfer_pattern = case_when(
+    transfer_value %in% c(category_map$Intra_NS_to_S,category_map$Intra_S_to_NS,
+                          category_map$Intra_NS_to_NS) ~ "Intra_Sectoral",
+    transfer_value %in% c(category_map$Inter_NS_to_S,category_map$Inter_S_to_NS,
+                          category_map$Inter_NS_to_NS) ~ "Inter_Sectoral"
+  ),
+  Sex = ifelse(Sex == "Male \r\n", "Male", Sex))
+###############################################################
+dd_filtered4$transfer_pattern <- relevel(factor(dd_filtered4$transfer_pattern), 
+                                         ref = "Intra_Sectoral")
+model1 <- multinom(transfer_pattern ~ represented_interest + leadership_type, 
+                   data = dd_filtered4)
+##############################################################################
 # Summary of the model
-sum=summary(model1)
-
+sum1=summary(model1)
 # Get p-values
 #z <- summary(model)$coefficients / summary(model)$standard.errors
-z <- sum$coefficients / sum$standard.errors
-p <- (1 - pnorm(abs(z))) * 2
-print(p)
+z1 <- sum1$coefficients / sum1$standard.errors
+p1 <- (1 - pnorm(abs(z1))) * 2
+print(p1)
 
-##########################################################################
-model2 <- multinom(transfer_pattern ~ represented_interest + leadership_type +
-                    Sex + Education_Attainment + type_of_actors, 
-                  data = dd_filtered)
+####################################
+model1 <- multinom(transfer_pattern ~ represented_interest + leadership_type, 
+                   data = dd_filtered4)
+##############################################################################
+# Summary of the model
+sum1=summary(model1)
+# Get p-values
+#z <- summary(model)$coefficients / summary(model)$standard.errors
+z1 <- sum1$coefficients / sum1$standard.errors
+p1 <- (1 - pnorm(abs(z1))) * 2
+print(p1)
+###########################################################
+model1 <- multinom(transfer_pattern ~ represented_interest + leadership_type, 
+                   data = dd_filtered4)
+##############################################################################
+# Summary of the model
+sum1=summary(model1)
+# Get p-values
+#z <- summary(model)$coefficients / summary(model)$standard.errors
+z1 <- sum1$coefficients / sum1$standard.errors
+p1 <- (1 - pnorm(abs(z1))) * 2
+print(p1)
 
+####################################
+## Regression Test for H2 and H3 including the control variables
+model2 <- multinom(transfer_pattern ~ represented_interest + leadership_type + 
+                     Age + Sex + leadership_type + Education_Field + Education_Attainment,
+                   data = dd_filtered4)
+##############################################################################
+# Summary of the model
 sum2=summary(model2)
-
 # Get p-values
 #z <- summary(model)$coefficients / summary(model)$standard.errors
 z2 <- sum2$coefficients / sum2$standard.errors
 p2 <- (1 - pnorm(abs(z2))) * 2
 print(p2)
-
-
-#install.packages("broom")
-
-library(broom)
-library(dplyr)
-library(tibble)
-
-coefs1 <- tidy(model1) %>%
-  select(term, estimate) %>%
-  rename(estimate_model1 = estimate)
-
-View(coefs2)
-coefs2 <- tidy(model2) %>%
-  select(term, estimate) %>%
-  rename(estimate_model2 = estimate)
-
-# Join the two tables by term
-comparison_table <- full_join(coefs1, coefs2, by = "term", relationship = "many-to-many")
-
-# Print as a neat tibble
-View(comparison_table)
-
-model <- multinom(type_of_actors ~ represented_interest + leadership_type,
-                     data = dd_filtered)
-
-# Summary of the model
-sum=summary(model)
-
-# Get p-values
-#z <- summary(model)$coefficients / summary(model)$standard.errors
-z <- sum$coefficients / sum$standard.errors
-p <- (1 - pnorm(abs(z))) * 2
-print(p)
