@@ -46,8 +46,7 @@ sub_data$represented_interest = data$Type.of.represented.interest
 sub_data$leadership_type = data$Recruitment.Type
 sub_data$Sex      =   data$Sex
 sub_data$Education_Attainment      =   data$`Education Attainment`
-
-
+sub_data$Leadership_Post      =   data$Leadership_Position
 #####################
 dd_long <- sub_data %>%
   pivot_longer(
@@ -85,9 +84,6 @@ dd_long1 <- sub_data %>%
     names_to = "transfer_institution",       # New column for original column names
     values_to = "position_value"        # New column for values
   )
-
-
-dim(dd_long1)
 ################# Generate concatenated columns #####################
 for (i in 1:(length(positions) - 1)) {
   col1 <- positions[i]
@@ -185,13 +181,19 @@ category_map3 <- list(
                             "LOC_GOV_EDU_IG")
 )
 
+#dd_filtered3 <- ddf_long_clean %>%
+  #filter(transfer_value %in% unlist(category_map)) %>%
+  #mutate(transfer_pattern = case_when(
+    #transfer_value %in% c(category_map$Intra_NS_to_S,category_map$Inter_NS_to_S) ~ "Nonstate_State",
+    #transfer_value %in% c(category_map$Intra_S_to_NS,category_map$Inter_S_to_NS) ~ "State_Nonstate"
+  #))
 dd_filtered3 <- ddf_long_clean %>%
   filter(transfer_value %in% unlist(category_map)) %>%
   mutate(transfer_pattern = case_when(
-    transfer_value %in% c(category_map$Intra_NS_to_S,category_map$Inter_NS_to_S) ~ "Nonstate_State",
-    transfer_value %in% c(category_map$Intra_S_to_NS,category_map$Inter_S_to_NS) ~ "State_Nonstate"
-  ))
-
+    transfer_value %in% c(category_map$Intra_NS_to_S, category_map$Inter_NS_to_S) ~ "Nonstate_State",
+    transfer_value %in% c(category_map$Intra_S_to_NS, category_map$Inter_S_to_NS) ~ "State_Nonstate"
+  )) %>%
+  filter(!is.na(transfer_pattern))  # Remove rows with NA pattern
 state_to_nonstate <- sum(na.omit(dd_filtered3$transfer_pattern) == "State_Nonstate")
 nonstate_to_state <- sum(na.omit(dd_filtered3$transfer_pattern) == "Nonstate_State")
 
@@ -216,8 +218,29 @@ dd_filtered4 <- ddf_long_clean %>%
 ###############################################################
 dd_filtered4$transfer_pattern <- relevel(factor(dd_filtered4$transfer_pattern), 
                                          ref = "Intra_Sectoral")
+model <- glm(transfer_pattern ~ represented_interest + leadership_type, 
+             data = dd_filtered4, family = "binomial")
+summary(model)
+
+####################################
+## Regression Test for H2 and H3 including the control variables
+model2 <- glm(transfer_pattern ~ represented_interest + leadership_type + 
+                     Age + Sex + Leadership_Post + Education_Field + Education_Attainment,
+                   data = dd_filtered4,family = "binomial")
+summary(model2)
+
+
+
+
+
+
+
+
+
+
 model1 <- multinom(transfer_pattern ~ represented_interest + leadership_type, 
                    data = dd_filtered4)
+summary(model1)
 ##############################################################################
 # Summary of the model
 sum1=summary(model1)
@@ -253,7 +276,7 @@ print(p1)
 ####################################
 ## Regression Test for H2 and H3 including the control variables
 model2 <- multinom(transfer_pattern ~ represented_interest + leadership_type + 
-                     Age + Sex + leadership_type + Education_Field + Education_Attainment,
+                     Age + Sex + Leadership_Position + Education_Field + Education_Attainment,
                    data = dd_filtered4)
 ##############################################################################
 # Summary of the model
@@ -263,3 +286,4 @@ sum2=summary(model2)
 z2 <- sum2$coefficients / sum2$standard.errors
 p2 <- (1 - pnorm(abs(z2))) * 2
 print(p2)
+
