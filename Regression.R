@@ -132,21 +132,20 @@ ddf_long_clean <- na.omit(ddf) %>%
     transfer_value != "NA_NA"                   # remove exact match "NA_NA"
   )
 ##########################
-
 category_map <- list(
   "Intra_NS_to_NS"     =   c("EDU_IG_EDU_IG"),
-  
+
   "Intra_NS_to_S"      =   c("EDU_IG_EDU_INST", "EDU_IG_EDU_GOV"),
-  
+
   "Intra_S_to_NS"      =  c("EDU_INST_EDU_IG", "EDU_GOV_EDU_IG"),
-  
-  "Inter_NS_to_NS"     =  c("OTH_IG_EDU_IG", "POL_PA_EDU_IG", 
+
+  "Inter_NS_to_NS"     =  c("OTH_IG_EDU_IG", "POL_PA_EDU_IG",
                             "PRIV_SEC_EDU_IG", "Media_EDU_IG"),
-  
-  "Inter_NS_to_S"      =  c("EDU_IG_OTH_GOV", "EDU_IG_PARL", 
+
+  "Inter_NS_to_S"      =  c("EDU_IG_OTH_GOV", "EDU_IG_PARL",
                             "EDU_IG_LOC_GOV"),
-  
-  "Inter_S_to_NS"   =     c("OTH_GOV_EDU_IG", "PARL_EDU_IG", 
+
+  "Inter_S_to_NS"   =     c("OTH_GOV_EDU_IG", "PARL_EDU_IG",
                             "LOC_GOV_EDU_IG")
 )
 
@@ -163,8 +162,11 @@ dd_filtered <- ddf_long_clean %>%
 unique(dd_filtered$position_value)
 
 ##########################
-category_map2 =  list(state =  c("EDU_INST","EDU_GOV", "LOC_GOV","OTH_GOV","PARL"),
-                       nonstate = c("EDU_IG","OTH_IG","PRIV_SEC","Media","POL_PA"))
+category_map2 =  list(state =  c("EDU_GOV", "LOC_GOV","OTH_GOV","PARL"),
+                      nonstate = c("EDU_IG","OTH_IG","PRIV_SEC","Media","POL_PA"))
+
+# category_map2 =  list(state =  c("EDU_INST","EDU_GOV", "LOC_GOV","OTH_GOV","PARL"),
+#                        nonstate = c("EDU_IG","OTH_IG","PRIV_SEC","Media","POL_PA"))
 dd_filtered <- dd_filtered %>%
   filter(position_value %in% unlist(category_map2)) %>%
   mutate(type_of_actors = case_when(
@@ -175,16 +177,29 @@ dd_filtered <- dd_filtered %>%
 # Proportion Test to answer hypothesis 1.
 category_map3 <- list(
 
-  "Intra_NS_to_S"      =   c("EDU_IG_EDU_INST", "EDU_IG_EDU_GOV"),
-  
-  "Intra_S_to_NS"      =  c("EDU_INST_EDU_IG", "EDU_GOV_EDU_IG"),
-  
-  "Inter_NS_to_S"      =  c("EDU_IG_OTH_GOV", "EDU_IG_PARL", 
+  "Intra_NS_to_S"      =   c("EDU_IG_EDU_GOV"),
+
+  "Intra_S_to_NS"      =  c("EDU_GOV_EDU_IG"),
+
+  "Inter_NS_to_S"      =  c("EDU_IG_OTH_GOV", "EDU_IG_PARL",
                             "EDU_IG_LOC_GOV"),
-  
-  "Inter_S_to_NS"   =     c("OTH_GOV_EDU_IG", "PARL_EDU_IG", 
+
+  "Inter_S_to_NS"   =     c("OTH_GOV_EDU_IG", "PARL_EDU_IG",
                             "LOC_GOV_EDU_IG")
 )
+
+# category_map3 <- list(
+# 
+#   "Intra_NS_to_S"      =   c("EDU_IG_EDU_INST", "EDU_IG_EDU_GOV"),
+# 
+#   "Intra_S_to_NS"      =  c("EDU_INST_EDU_IG", "EDU_GOV_EDU_IG"),
+# 
+#   "Inter_NS_to_S"      =  c("EDU_IG_OTH_GOV", "EDU_IG_PARL",
+#                             "EDU_IG_LOC_GOV"),
+# 
+#   "Inter_S_to_NS"   =     c("OTH_GOV_EDU_IG", "PARL_EDU_IG",
+#                             "LOC_GOV_EDU_IG")
+# )
 
 #dd_filtered3 <- ddf_long_clean %>%
   #filter(transfer_value %in% unlist(category_map)) %>%
@@ -201,8 +216,6 @@ dd_filtered3 <- ddf_long_clean %>%
   filter(!is.na(transfer_pattern))  # Remove rows with NA pattern
 state_to_nonstate <- sum(na.omit(dd_filtered3$transfer_pattern) == "State_Nonstate")
 nonstate_to_state <- sum(na.omit(dd_filtered3$transfer_pattern) == "Nonstate_State")
-
-
 
 x <- c(state_to_nonstate, nonstate_to_state)  
 n <- c(state_to_nonstate + nonstate_to_state, 
