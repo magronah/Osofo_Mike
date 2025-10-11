@@ -3,6 +3,11 @@ library(nnet)
 library(dplyr)
 library(tidyr)
 library(readxl)
+library(ggplot2)
+library(forcats)
+library(broom)
+library(margins)
+library(ggeffects)
 #########################
 data1  =  read.csv("mike_data.csv")
 #########################
@@ -205,7 +210,7 @@ n <- c(state_to_nonstate + nonstate_to_state,
 
 prop.test(x = x, n=n, alternative = "greater")
 ###########################################################################
-### Multinomial regression test H2 and H3
+### Binomial regression test H2 and H3
 dd_filtered4 <- ddf_long_clean %>%
   filter(transfer_value %in% unlist(category_map)) %>%
   mutate(transfer_pattern = case_when(
@@ -230,60 +235,36 @@ model2 <- glm(transfer_pattern ~ represented_interest + leadership_type +
 summary(model2)
 
 
+tidy_mod <- broom::tidy(model2, conf.int = TRUE)
 
+# Recode terms for nicer labels
+nice_labs <- c(
+  "(Intercept)" = "Intercept",
+  "type_interestproviders" = "Type: Providers (vs Professions)",
+  "type_interestusers" = "Type: Users (vs Professions)",
+  "leadership_typeemployed" = "Leadership: Employed (vs Elected)",
+  "age" = "Age (years)",
+  "male" = "Sex: Male (vs Female)",
+  "leadership_post_top" = "Leadership Post: Top (vs Senior)",
+  "education_field_yes" = "Education Field: Yes (vs No)",
+  "education_attainmentPhD" = "Education: PhD (vs Bachelors)",
+  "education_attainmentMasters" = "Education: Masters (vs Bachelors)",
+  "education_attainmentPostsec_voc" = "Education: Post-sec. voc. (vs Bachelors)",
+  "education_attainmentUpperSecondary" = "Education: Upper Secondary (vs Bachelors)"
+)
 
+plot_dat <- tidy_mod %>%
+  filter(term != "(Intercept)") %>%
+  mutate(term = recode(term, !!!nice_labs)) %>%
+  mutate(term = fct_reorder(term, estimate))
 
-
-
-
-
-
-model1 <- multinom(transfer_pattern ~ represented_interest + leadership_type, 
-                   data = dd_filtered4)
-summary(model1)
-##############################################################################
-# Summary of the model
-sum1=summary(model1)
-# Get p-values
-#z <- summary(model)$coefficients / summary(model)$standard.errors
-z1 <- sum1$coefficients / sum1$standard.errors
-p1 <- (1 - pnorm(abs(z1))) * 2
-print(p1)
-
-####################################
-model1 <- multinom(transfer_pattern ~ represented_interest + leadership_type, 
-                   data = dd_filtered4)
-##############################################################################
-# Summary of the model
-sum1=summary(model1)
-# Get p-values
-#z <- summary(model)$coefficients / summary(model)$standard.errors
-z1 <- sum1$coefficients / sum1$standard.errors
-p1 <- (1 - pnorm(abs(z1))) * 2
-print(p1)
-###########################################################
-model1 <- multinom(transfer_pattern ~ represented_interest + leadership_type, 
-                   data = dd_filtered4)
-##############################################################################
-# Summary of the model
-sum1=summary(model1)
-# Get p-values
-#z <- summary(model)$coefficients / summary(model)$standard.errors
-z1 <- sum1$coefficients / sum1$standard.errors
-p1 <- (1 - pnorm(abs(z1))) * 2
-print(p1)
-
-####################################
-## Regression Test for H2 and H3 including the control variables
-model2 <- multinom(transfer_pattern ~ represented_interest + leadership_type + 
-                     Age + Sex + Leadership_Position + Education_Field + Education_Attainment,
-                   data = dd_filtered4)
-##############################################################################
-# Summary of the model
-sum2=summary(model2)
-# Get p-values
-#z <- summary(model)$coefficients / summary(model)$standard.errors
-z2 <- sum2$coefficients / sum2$standard.errors
-p2 <- (1 - pnorm(abs(z2))) * 2
-print(p2)
-
+ggplot(plot_dat, aes(x = estimate, y = term)) +
+  geom_point(size = 2) +
+  geom_errorbarh(aes(xmin = conf.low, xmax = conf.high), height = 0.15) +
+  geom_vline(xintercept = 0, linetype = "dashed") +
+  labs(
+    x = "Coefficient with 95% CI",
+    y = NULL,
+    title = "Coefficient  Plot: Binomial Logistic Regression"
+  ) +
+  theme_minimal(base_size = 12)
