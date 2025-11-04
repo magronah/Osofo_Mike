@@ -8,6 +8,7 @@ library(forcats)
 library(broom)
 library(margins)
 library(ggeffects)
+source("functions.R")
 #########################
 data1  =  read.csv("mike_data.csv")
 #########################
@@ -188,25 +189,6 @@ category_map3 <- list(
                             "LOC_GOV_EDU_IG")
 )
 
-# category_map3 <- list(
-# 
-#   "Intra_NS_to_S"      =   c("EDU_IG_EDU_INST", "EDU_IG_EDU_GOV"),
-# 
-#   "Intra_S_to_NS"      =  c("EDU_INST_EDU_IG", "EDU_GOV_EDU_IG"),
-# 
-#   "Inter_NS_to_S"      =  c("EDU_IG_OTH_GOV", "EDU_IG_PARL",
-#                             "EDU_IG_LOC_GOV"),
-# 
-#   "Inter_S_to_NS"   =     c("OTH_GOV_EDU_IG", "PARL_EDU_IG",
-#                             "LOC_GOV_EDU_IG")
-# )
-
-#dd_filtered3 <- ddf_long_clean %>%
-  #filter(transfer_value %in% unlist(category_map)) %>%
-  #mutate(transfer_pattern = case_when(
-    #transfer_value %in% c(category_map$Intra_NS_to_S,category_map$Inter_NS_to_S) ~ "Nonstate_State",
-    #transfer_value %in% c(category_map$Intra_S_to_NS,category_map$Inter_S_to_NS) ~ "State_Nonstate"
-  #))
 dd_filtered3 <- ddf_long_clean %>%
   filter(transfer_value %in% unlist(category_map)) %>%
   mutate(transfer_pattern = case_when(
@@ -214,21 +196,14 @@ dd_filtered3 <- ddf_long_clean %>%
     transfer_value %in% c(category_map$Intra_S_to_NS, category_map$Inter_S_to_NS) ~ "State_Nonstate"
   )) %>%
   filter(!is.na(transfer_pattern))  # Remove rows with NA pattern
-
-state_to_nonstate <- sum((dd_filtered3$transfer_pattern) == "State_Nonstate")
-nonstate_to_state <- sum((dd_filtered3$transfer_pattern) == "Nonstate_State")
+state_to_nonstate <- sum(na.omit(dd_filtered3$transfer_pattern) == "State_Nonstate")
+nonstate_to_state <- sum(na.omit(dd_filtered3$transfer_pattern) == "Nonstate_State")
 
 x <- c(state_to_nonstate, nonstate_to_state)  
 n <- c(state_to_nonstate + nonstate_to_state, 
        state_to_nonstate + nonstate_to_state)  # total in both groups (same)
 
-x
-n
 prop.test(x = x, n=n, alternative = "greater")
-
-## First, we shouldn't be doubling the total, it is just one total
-chisq.test(x = x, p = c(0.5, 0.5))
-## We are com
 ###########################################################################
 ### Binomial regression test H2 and H3
 dd_filtered4 <- ddf_long_clean %>%
@@ -258,7 +233,7 @@ summary(model2)
 tidy_mod <- broom::tidy(model2, conf.int = TRUE)
 
 # Recode terms for nicer labels
-nice_labs <- c(
+nice_labs <- c
   "(Intercept)" = "Intercept",
   "type_interestproviders" = "Type: Providers (vs Professions)",
   "type_interestusers" = "Type: Users (vs Professions)",
@@ -278,7 +253,7 @@ plot_dat <- tidy_mod %>%
   mutate(term = recode(term, !!!nice_labs)) %>%
   mutate(term = fct_reorder(term, estimate))
 
-ggplot(plot_dat, aes(x = estimate, y = term)) +
+plot1= ggplot(plot_dat, aes(x = estimate, y = term)) +
   geom_point(size = 2) +
   geom_errorbarh(aes(xmin = conf.low, xmax = conf.high), height = 0.15) +
   geom_vline(xintercept = 0, linetype = "dashed") +
@@ -286,6 +261,9 @@ ggplot(plot_dat, aes(x = estimate, y = term)) +
     x = "Coefficient with 95% CI",
     y = NULL,
     title = "Coefficient  Plot: Binomial Logistic Regression"
-  ) +
-  theme_minimal(base_size = 12)
+  ) + 
+  custom_theme(14)
+plot1
 
+ggsave(paste0("Results_Findings/","Coefficient_Plot.png"), 
+       plot = plot1, width = plot_width, height = plot_height, dpi = 300)
