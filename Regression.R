@@ -214,14 +214,21 @@ dd_filtered3 <- ddf_long_clean %>%
     transfer_value %in% c(category_map$Intra_S_to_NS, category_map$Inter_S_to_NS) ~ "State_Nonstate"
   )) %>%
   filter(!is.na(transfer_pattern))  # Remove rows with NA pattern
-state_to_nonstate <- sum(na.omit(dd_filtered3$transfer_pattern) == "State_Nonstate")
-nonstate_to_state <- sum(na.omit(dd_filtered3$transfer_pattern) == "Nonstate_State")
+
+state_to_nonstate <- sum((dd_filtered3$transfer_pattern) == "State_Nonstate")
+nonstate_to_state <- sum((dd_filtered3$transfer_pattern) == "Nonstate_State")
 
 x <- c(state_to_nonstate, nonstate_to_state)  
 n <- c(state_to_nonstate + nonstate_to_state, 
        state_to_nonstate + nonstate_to_state)  # total in both groups (same)
 
+x
+n
 prop.test(x = x, n=n, alternative = "greater")
+
+## First, we shouldn't be doubling the total, it is just one total
+chisq.test(x = x, p = c(0.5, 0.5))
+## We are com
 ###########################################################################
 ### Binomial regression test H2 and H3
 dd_filtered4 <- ddf_long_clean %>%
@@ -281,3 +288,4 @@ ggplot(plot_dat, aes(x = estimate, y = term)) +
     title = "Coefficient  Plot: Binomial Logistic Regression"
   ) +
   theme_minimal(base_size = 12)
+
