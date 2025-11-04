@@ -177,8 +177,14 @@ target_states <- target_states[target_states
 seq_func(clean_filtered_data, target_states, 
          plot_title = "State to Non-state Transfer Events")
 ###################################################
+#Only NS_S Sectors
+target_states = c(category_map$Intra_NS_to_S,
+                  category_map$Inter_NS_to_S) 
 
-#Only NS_S
+seq_func(clean_filtered_data, target_states, 
+         plot_title = "Non-state to State Transfer Events")
+###########################################################
+#Only NS_S Actors
 target_states = c(category_map$Intra_NS_to_S,
                   category_map$Inter_NS_to_S) 
 
