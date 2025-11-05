@@ -89,6 +89,9 @@ category_map <- list(
                             "LOC_GOV_EDU_IG")
 )
 
+
+#####################
+
 # Flatten to a named character vector
 transfer_to_category <- unlist(lapply(names(category_map), function(category) {
   setNames(rep(category, length(category_map[[category]])), category_map[[category]])

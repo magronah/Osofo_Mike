@@ -175,6 +175,13 @@ dd_filtered <- dd_filtered %>%
   ))
 ###########################################################################
 # Proportion Test to answer hypothesis 1.
+# H1: Transfer patterns from state to Non-state are more likely than 
+# Non-state to state
+
+#' Proportion of individuals moving from state to Non-state is greater than 
+# individuals moving from Non-state to state?
+
+
 category_map3 <- list(
 
   "Intra_NS_to_S"      =   c("EDU_IG_EDU_GOV"),
@@ -187,6 +194,7 @@ category_map3 <- list(
   "Inter_S_to_NS"   =     c("OTH_GOV_EDU_IG", "PARL_EDU_IG",
                             "LOC_GOV_EDU_IG")
 )
+
 
 # category_map3 <- list(
 # 
@@ -201,19 +209,24 @@ category_map3 <- list(
 #                             "LOC_GOV_EDU_IG")
 # )
 
+
+
 #dd_filtered3 <- ddf_long_clean %>%
   #filter(transfer_value %in% unlist(category_map)) %>%
   #mutate(transfer_pattern = case_when(
     #transfer_value %in% c(category_map$Intra_NS_to_S,category_map$Inter_NS_to_S) ~ "Nonstate_State",
     #transfer_value %in% c(category_map$Intra_S_to_NS,category_map$Inter_S_to_NS) ~ "State_Nonstate"
   #))
+
 dd_filtered3 <- ddf_long_clean %>%
-  filter(transfer_value %in% unlist(category_map)) %>%
+  filter(transfer_value %in% unlist(category_map3)) %>%
   mutate(transfer_pattern = case_when(
-    transfer_value %in% c(category_map$Intra_NS_to_S, category_map$Inter_NS_to_S) ~ "Nonstate_State",
-    transfer_value %in% c(category_map$Intra_S_to_NS, category_map$Inter_S_to_NS) ~ "State_Nonstate"
+    transfer_value %in% c(category_map3$Intra_NS_to_S, category_map3$Inter_NS_to_S) ~ "Nonstate_State",
+    transfer_value %in% c(category_map3$Intra_S_to_NS, category_map3$Inter_S_to_NS) ~ "State_Nonstate"
   )) %>%
   filter(!is.na(transfer_pattern))  # Remove rows with NA pattern
+
+View(data.frame(dd_filtered3$transfer_value, dd_filtered3$transfer_pattern))
 
 state_to_nonstate <- sum((dd_filtered3$transfer_pattern) == "State_Nonstate")
 nonstate_to_state <- sum((dd_filtered3$transfer_pattern) == "Nonstate_State")
@@ -227,7 +240,23 @@ n
 prop.test(x = x, n=n, alternative = "greater")
 
 ## First, we shouldn't be doubling the total, it is just one total
+
+### H_null : p_{state_nonstate} = p_{nonstate_state}
+### H_alternate : p_{state_nonstate} > p_{nonstate_state}
+### pvalue < 0.05, then we reject H_null, accepting that H_alternate
+### pvalue > 0.05, then we dont have enough evidence from our data to 
+###               reject H_null
+
+
+### X-squared  
 chisq.test(x = x, p = c(0.5, 0.5))
+
+## expect: state_nonstate:591/2 = 295.5 and nonstate_state:591/2 = 295.5
+##X_squared = (observed - expect)^2/expect
+##X_squared = ((431 - 295.5)^2)/295.5 + ((160 - 295.5)^2)/295.5
+sum(x)
+
+
 ## We are com
 ###########################################################################
 ### Binomial regression test H2 and H3
