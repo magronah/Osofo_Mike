@@ -86,7 +86,13 @@ category_map <- list(
                             "EDU_IG_LOC_GOV"),
   
   "Inter_S_to_NS"   =     c("OTH_GOV_EDU_IG", "PARL_EDU_IG", 
-                            "LOC_GOV_EDU_IG")
+                            "LOC_GOV_EDU_IG"),
+  
+  "State_to_NSActors"   =     c("EDU_GOV_EDU_IG", "PARL_EDU_IG", 
+                            "LOC_GOV_EDU_IG", "OTH_GOV_EDU_IG"),
+  
+  "NSActors_to_State"   =     c("EDU_IG_EDU_GOV", "EDU_IG_OTH_GOV", 
+                            "LOC_GOV_EDU_IG","EDU_IG_PARL")
 )
 
 
