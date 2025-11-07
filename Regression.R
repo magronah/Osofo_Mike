@@ -228,24 +228,18 @@ dd_filtered3 <- ddf_long_clean %>%
     transfer_value %in% c(category_map3$Intra_S_to_NS, category_map3$Inter_S_to_NS) ~ "State_Nonstate"
   )) %>%
   filter(!is.na(transfer_pattern))  # Remove rows with NA pattern
-state_to_nonstate <- sum(na.omit(dd_filtered3$transfer_pattern) == "State_Nonstate")
-nonstate_to_state <- sum(na.omit(dd_filtered3$transfer_pattern) == "Nonstate_State")
 
-
-View(data.frame(dd_filtered3$transfer_value, dd_filtered3$transfer_pattern))
 
 state_to_nonstate <- sum((dd_filtered3$transfer_pattern) == "State_Nonstate")
 nonstate_to_state <- sum((dd_filtered3$transfer_pattern) == "Nonstate_State")
 
 
 x <- c(state_to_nonstate, nonstate_to_state)  
-n <- c(state_to_nonstate + nonstate_to_state, 
-       state_to_nonstate + nonstate_to_state)  # total in both groups (same)
+#n <- c(state_to_nonstate + nonstate_to_state, 
+       #state_to_nonstate + nonstate_to_state)  # total in both groups (same)
 
-prop.test(x = x, n=n, alternative = "greater")
+#prop.test(x = x, n=n, alternative = "greater")
 
-
-## First, we shouldn't be doubling the total, it is just one total
 
 ### H_null : p_{state_nonstate} = p_{nonstate_state}
 ### H_alternate : p_{state_nonstate} > p_{nonstate_state}
@@ -260,7 +254,7 @@ chisq.test(x = x, p = c(0.5, 0.5))
 ## expect: state_nonstate:591/2 = 295.5 and nonstate_state:591/2 = 295.5
 ##X_squared = (observed - expect)^2/expect
 ##X_squared = ((431 - 295.5)^2)/295.5 + ((160 - 295.5)^2)/295.5
-sum(x)
+x
 
 
 ## We are com
