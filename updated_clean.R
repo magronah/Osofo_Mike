@@ -86,7 +86,13 @@ category_map <- list(
                             "EDU_IG_LOC_GOV"),
   
   "Inter_S_to_NS"   =     c("OTH_GOV_EDU_IG", "PARL_EDU_IG", 
-                            "LOC_GOV_EDU_IG")
+                            "LOC_GOV_EDU_IG"),
+  
+  "State_to_NSActors"   =     c("EDU_GOV_EDU_IG", "PARL_EDU_IG", 
+                            "LOC_GOV_EDU_IG", "OTH_GOV_EDU_IG"),
+  
+  "NSActors_to_State"   =     c("EDU_IG_EDU_GOV", "EDU_IG_OTH_GOV", 
+                            "LOC_GOV_EDU_IG","EDU_IG_PARL")
 )
 
 
@@ -180,8 +186,14 @@ target_states <- target_states[target_states
 seq_func(clean_filtered_data, target_states, 
          plot_title = "State to Non-state Transfer Events")
 ###################################################
+#Only NS_S Sectors
+target_states = c(category_map$Intra_NS_to_S,
+                  category_map$Inter_NS_to_S) 
 
-#Only NS_S
+seq_func(clean_filtered_data, target_states, 
+         plot_title = "Non-state to State Transfer Events")
+###########################################################
+#Only NS_S Actors
 target_states = c(category_map$Intra_NS_to_S,
                   category_map$Inter_NS_to_S) 
 

@@ -8,6 +8,7 @@ library(forcats)
 library(broom)
 library(margins)
 library(ggeffects)
+source("functions.R")
 #########################
 data1  =  read.csv("mike_data.csv")
 #########################
@@ -196,6 +197,7 @@ category_map3 <- list(
 )
 
 
+
 # category_map3 <- list(
 # 
 #   "Intra_NS_to_S"      =   c("EDU_IG_EDU_INST", "EDU_IG_EDU_GOV"),
@@ -218,6 +220,7 @@ category_map3 <- list(
     #transfer_value %in% c(category_map$Intra_S_to_NS,category_map$Inter_S_to_NS) ~ "State_Nonstate"
   #))
 
+
 dd_filtered3 <- ddf_long_clean %>%
   filter(transfer_value %in% unlist(category_map3)) %>%
   mutate(transfer_pattern = case_when(
@@ -226,20 +229,17 @@ dd_filtered3 <- ddf_long_clean %>%
   )) %>%
   filter(!is.na(transfer_pattern))  # Remove rows with NA pattern
 
-View(data.frame(dd_filtered3$transfer_value, dd_filtered3$transfer_pattern))
 
 state_to_nonstate <- sum((dd_filtered3$transfer_pattern) == "State_Nonstate")
 nonstate_to_state <- sum((dd_filtered3$transfer_pattern) == "Nonstate_State")
 
+
 x <- c(state_to_nonstate, nonstate_to_state)  
-n <- c(state_to_nonstate + nonstate_to_state, 
-       state_to_nonstate + nonstate_to_state)  # total in both groups (same)
+#n <- c(state_to_nonstate + nonstate_to_state, 
+       #state_to_nonstate + nonstate_to_state)  # total in both groups (same)
 
-x
-n
-prop.test(x = x, n=n, alternative = "greater")
+#prop.test(x = x, n=n, alternative = "greater")
 
-## First, we shouldn't be doubling the total, it is just one total
 
 ### H_null : p_{state_nonstate} = p_{nonstate_state}
 ### H_alternate : p_{state_nonstate} > p_{nonstate_state}
@@ -254,7 +254,7 @@ chisq.test(x = x, p = c(0.5, 0.5))
 ## expect: state_nonstate:591/2 = 295.5 and nonstate_state:591/2 = 295.5
 ##X_squared = (observed - expect)^2/expect
 ##X_squared = ((431 - 295.5)^2)/295.5 + ((160 - 295.5)^2)/295.5
-sum(x)
+x
 
 
 ## We are com
@@ -307,7 +307,7 @@ plot_dat <- tidy_mod %>%
   mutate(term = recode(term, !!!nice_labs)) %>%
   mutate(term = fct_reorder(term, estimate))
 
-ggplot(plot_dat, aes(x = estimate, y = term)) +
+plot1= ggplot(plot_dat, aes(x = estimate, y = term)) +
   geom_point(size = 2) +
   geom_errorbarh(aes(xmin = conf.low, xmax = conf.high), height = 0.15) +
   geom_vline(xintercept = 0, linetype = "dashed") +
@@ -315,6 +315,9 @@ ggplot(plot_dat, aes(x = estimate, y = term)) +
     x = "Coefficient with 95% CI",
     y = NULL,
     title = "Coefficient  Plot: Binomial Logistic Regression"
-  ) +
-  theme_minimal(base_size = 12)
+  ) + 
+  custom_theme(14)
+plot1
 
+ggsave(paste0("Results_Findings/","Coefficient_Plot.png"), 
+       plot = plot1, width = plot_width, height = plot_height, dpi = 300)
